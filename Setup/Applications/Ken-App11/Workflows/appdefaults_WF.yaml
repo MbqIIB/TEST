@@ -52,12 +52,6 @@ phases:
         stepsInParallel: false
       - type: VERIFY_SERVICE
         name: Verify Service
-        steps:
-          - type: HTTP
-            name: HTTP
-            properties:
-                method: GET
-                url: http://THISWILLFALL.com.net.cow.abc
         stepsInParallel: false
       - type: WRAP_UP
         name: Wrap Up
