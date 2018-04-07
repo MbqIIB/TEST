@@ -26,7 +26,10 @@ phases:
           - type: AWS_NODE_SELECT
             name: Select Nodes
             properties:
-                excludeSelectedHostsFromFuturePhases: true
+                instanceUnitType: COUNT
+                hosts: ec2-54-88-142-14.compute-1.amazonaws.com
+                instanceCount: 1
+                excludeSelectedHostsFromFuturePhases: false
                 specificHosts: false
         stepsInParallel: false
       - type: DISABLE_SERVICE
