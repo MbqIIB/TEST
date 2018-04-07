@@ -62,6 +62,24 @@ phases:
         stepsInParallel: false
     provisionNodes: false
     serviceName: service1
+    templateExpressions:
+      - expression: ${Service}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: WAR
+          - name: relatedField
+            value: ${ServiceInfra_SSH}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_SSH}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: WAR
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
 preDeploymentSteps:
   - type: ARTIFACT_CHECK
     name: Artifact Check
@@ -118,4 +136,64 @@ rollbackPhases:
         stepsInParallel: false
     provisionNodes: false
     serviceName: service1
-templatized: false
+    templateExpressions:
+      - expression: ${Service}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: WAR
+          - name: relatedField
+            value: ${ServiceInfra_SSH}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_SSH}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: WAR
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
+templateExpressions:
+  - expression: ${Environment}
+    fieldName: envId
+    metadata:
+      - name: artifactType
+        value: WAR
+      - name: relatedField
+      - name: entityType
+        value: ENVIRONMENT
+  - expression: ${Service}
+    fieldName: serviceId
+    metadata:
+      - name: artifactType
+        value: WAR
+      - name: relatedField
+        value: ${ServiceInfra_SSH}
+      - name: entityType
+        value: SERVICE
+  - expression: ${ServiceInfra_SSH}
+    fieldName: infraMappingId
+    metadata:
+      - name: artifactType
+        value: WAR
+      - name: relatedField
+      - name: entityType
+        value: INFRASTRUCTURE_MAPPING
+templatized: true
+userVariables:
+  - type: ENTITY
+    description: Variable for Environment entity
+    fixed: false
+    mandatory: true
+    name: Environment
+  - type: ENTITY
+    description: Variable for Service entity
+    fixed: false
+    mandatory: true
+    name: Service
+  - type: ENTITY
+    description: Variable for Service Infra-structure entity
+    fixed: false
+    mandatory: true
+    name: ServiceInfra_SSH
