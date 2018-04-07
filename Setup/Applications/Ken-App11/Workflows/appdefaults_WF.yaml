@@ -53,7 +53,7 @@ phases:
             name: HTTP
             properties:
                 method: GET
-                url: http://THISWILLFAILHORRIBLY.com.io.net.ca
+                url: http://THISWILLFAILHORRIBLY.com.io.net.ca.gov
         stepsInParallel: false
       - type: WRAP_UP
         name: Wrap Up
