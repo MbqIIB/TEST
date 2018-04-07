@@ -11,5 +11,6 @@ provisionInstances: false
 region: us-east-1
 serviceName: artifactoryService
 tags:
-  - name: KenNg
-usePublicDns: false
+  - name: User
+    value: KenNg
+usePublicDns: true
