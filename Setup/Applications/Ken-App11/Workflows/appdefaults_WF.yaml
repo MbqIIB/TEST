@@ -42,10 +42,6 @@ phases:
             name: Install
             properties:
                 commandName: Install
-          - type: COMMAND
-            name: viator_defaults_2
-            properties:
-                commandName: viator_defaults
         stepsInParallel: false
       - type: ENABLE_SERVICE
         name: Enable Service
