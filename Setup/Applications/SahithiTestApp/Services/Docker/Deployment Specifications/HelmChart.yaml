@@ -2,4 +2,4 @@ harnessApiVersion: '1.0'
 type: HELM
 chartName: testname
 chartUrl: http://123.12.12.2
-chartVersion: v.1.2.3
+chartVersion: v.1.2.33
