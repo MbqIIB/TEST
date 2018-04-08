@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: WAR
+configVariables:
+  - name: TestVar
+    value: ${app.name}
+    valueType: TEXT
