@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE
+checksum: 68df3d97398d92416ae2d9ae7d43a0bf
+checksumType: MD5
+encrypted: false
+fileName: delegate.2018-04-07.log
+targetFilePath: delegate.2018-04-07.log
+targetToAllEnv: true
