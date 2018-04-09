@@ -1,0 +1,9 @@
+harnessApiVersion: '1.0'
+type: GCP_KUBERNETES
+cluster: us-central1-a/helm
+computeProviderName: exploration
+computeProviderType: GCP
+deploymentType: HELM
+infraMappingType: GCP_KUBERNETES
+namespace: default
+serviceName: Jenkins
