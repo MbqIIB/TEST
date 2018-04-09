@@ -2,8 +2,8 @@ harnessApiVersion: '1.0'
 type: INSTALL
 commandUnitType: COMMAND
 commandUnits:
-  - command: |2-
-
+  - command: |-
+        v2
         # Execute as root and pass environment variables
         # su -p -
 
