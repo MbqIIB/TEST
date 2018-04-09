@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+artifactPattern: todolist-1.0-1.x86_64.rpm
+metadataOnly: true
+repositoryName: harness-rpm
+repositoryType: any
+serverName: Harness SAAS Artifactory

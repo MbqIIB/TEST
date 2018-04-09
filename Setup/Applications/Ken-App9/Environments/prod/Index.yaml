@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: PROD
+variableOverrides:
+  - name: TEST
+    serviceName: Services_error
+    value: B
+    valueType: TEXT

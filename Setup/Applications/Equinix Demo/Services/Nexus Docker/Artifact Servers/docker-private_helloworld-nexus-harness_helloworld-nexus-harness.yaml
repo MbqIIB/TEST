@@ -1,0 +1,6 @@
+harnessApiVersion: '1.0'
+type: NEXUS
+groupId: helloworld-nexus-harness
+metadataOnly: false
+repositoryName: docker-private
+serverName: harness-nexus-3x

@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: ZIP
+configVariables:
+  - name: API_SERVER_URL
+    value: http://ec2-34-210-92-162.us-west-2.compute.amazonaws.com:9090/api
+    valueType: TEXT

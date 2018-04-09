@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |-
+        echo "this is output step"
+        if [ -e application.properties ]; then     cat application.properties; else     echo "couldn't find application.properties"; fi
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: output_text
+    workingDirectory: ${WINGS_RUNTIME_PATH}
+targetToAllEnv: true

@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: DOCKER
+configVariables:
+  - name: learning_env
+    value: Experimental
+    valueType: TEXT
+  - name: https_port
+    value: '10800'
+    valueType: TEXT

@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: AWS_ECS
+assignPublicIp: true
+cluster: QaFargate
+computeProviderName: aws
+computeProviderType: AWS
+deploymentType: ECS
+infraMappingType: AWS_ECS
+launchType: FARGATE
+region: us-east-1
+securityGroupIds: sg-f2e9ac84
+serviceName: Sumo-Docker
+subnetIds: subnet-a3cfd9c7
+vpcId: vpc-fa008281

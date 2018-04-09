@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: test2_wf
+    parallel: false
+    workflowName: test2_wf
+  - type: ENV_STATE
+    name: test3_wf
+    parallel: false
+    workflowName: test3_wf

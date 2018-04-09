@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: JAR
+configVariables:
+  - name: NEXUS_URL
+    value: https://nexus.wings.software/
+    valueType: TEXT

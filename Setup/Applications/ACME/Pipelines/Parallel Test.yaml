@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: SeedData-EchoWorkflow
+    parallel: false
+    workflowName: SeedData-EchoWorkflow
+  - type: ENV_STATE
+    name: Verify HTTP
+    parallel: false
+    workflowName: Verify HTTP
+  - type: ENV_STATE
+    name: Deploy Todo Workflow
+    parallel: true
+    workflowName: Deploy Todo Workflow

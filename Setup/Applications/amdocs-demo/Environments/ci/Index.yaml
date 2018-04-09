@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: NON_PROD
+variableOverrides:
+  - name: CommandVariables
+    serviceName: kube-svc
+    value: '"logger.level=silly","API.amdocs-business-api.OMNI.baseURL=http://lrtsrcm110cL31:10250","connector.botOptions.appId=727516e8-08a7-483a-8411-70b349a16f61","connector.botOptions.appPassword=jsPIXI20$:ktkatIZW600#+","session.database.connectionUri=couchbase://lrtsrcm110cL31/","session.database.dbName=bot-session","securityConfig.securityAdapterModuleName=amdocs-bot-custom-security-adapter","securityConfig.connectionUri=http://lrtsrcm110cL31:3012/amdocs/bot-sec/v1"'
+    valueType: TEXT

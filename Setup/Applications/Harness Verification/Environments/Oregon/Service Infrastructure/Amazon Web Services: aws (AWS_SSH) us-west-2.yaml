@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: aws
+computeProviderType: AWS
+connectionType: amazonkey-prod
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-west-2
+serviceName: Config Variable Test
+tags:
+  - name: Harness Target
+    value: QA
+usePublicDns: false

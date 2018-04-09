@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+groupId: wingsplugins/todolist
+imageName: wingsplugins/todolist
+metadataOnly: false
+repositoryName: docker
+repositoryType: any
+serverName: Harness SAAS Artifactory

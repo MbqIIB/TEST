@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: SPLUNK
+password: amazonkms:mNA29cTCTDuTqGdVZSXA9Q
+splunkUrl: https://input-prd-p-429h4vj2lsng.cloud.splunk.com:8089/
+username: harness-api

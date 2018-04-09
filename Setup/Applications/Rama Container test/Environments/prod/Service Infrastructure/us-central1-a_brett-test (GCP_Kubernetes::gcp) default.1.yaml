@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: GCP_KUBERNETES
+cluster: us-central1-a/brett-test
+computeProviderName: exploration
+computeProviderType: GCP
+deploymentType: KUBERNETES
+infraMappingType: GCP_KUBERNETES
+serviceName: s2

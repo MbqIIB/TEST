@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: ACCOUNT_DEFAULTS
+defaults:
+  - name: Ken_RBAC_AD
+    value: test

@@ -1,0 +1,85 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |-
+        mkdir -p "$WINGS_RUNTIME_PATH"
+        mkdir -p "$WINGS_BACKUP_PATH"
+        mkdir -p "$WINGS_STAGING_PATH"
+    commandUnitType: SETUP_ENV
+    deploymentType: SSH
+    name: Setup Runtime Paths
+  - commandUnitType: COMMAND
+    name: Stop
+  - commandUnitType: SCP
+    deploymentType: SSH
+    destinationDirectoryPath: $WINGS_RUNTIME_PATH
+    name: Copy Artifact
+    source: ARTIFACTS
+  - commandUnitType: COPY_CONFIGS
+    deploymentType: SSH
+    destinationParentPath: $WINGS_RUNTIME_PATH
+    name: Copy Configs
+  - command: |-
+        tar -xvzf $ARTIFACT_FILE_NAME
+        rm -f $ARTIFACT_FILE_NAME
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Expand Artifact
+    workingDirectory: $WINGS_RUNTIME_PATH
+  - command: |
+        sed -i "s|type: h2|type: http|" config.yml
+        sed -i "s|port: 9090|port: ${SERVER_PORT}|" config.yml
+        sed -i 's|keyStorePath: keystore.jks||' config.yml
+        sed -i 's|keyStorePassword: password||' config.yml
+        sed -i "s|trustStorePath: \${JAVA_HOME}/jre/lib/security/cacerts||" config.yml
+        sed -i 's|certAlias: localhost||' config.yml
+        sed -i 's|validateCerts: false||' config.yml
+        sed -i 's|allowedDomains: wings.software||' config.yml
+        sed -i "s|url: https://localhost:8000|url: ${UI_SERVER_URL}|" config.yml
+        sed -i "s|allowedOrigins: https://localhost:8000|allowedOrigins: ${ALLOWED_ORIGINS}|" config.yml
+        sed -i "s|uri: mongodb://localhost:27017/harness|uri: ${MONGO_URI}|" config.yml
+        sed -i 's|9a3e6eac4dcdbdc41a93ca99100537df|4ac03b05674fc5c488e3b9b235078d5d|' config.yml
+        sed -i "s|carbon.hostedgraphite.com|${GRAPHITE_SERVER}|" config.yml
+        sed -i "s|prefix: server|prefix: ${GRAPHITE_PREFIX}|" config.yml
+        sed -i "s|watcherMetadataUrl: http://wingswatchers.s3-website-us-east-1.amazonaws.com/watcherci.txt|watcherMetadataUrl: ${WATCHER_METADATA_URL}|" config.yml
+        sed -i "s|delegateMetadataUrl: http://wingsdelegates.s3-website-us-east-1.amazonaws.com/delegateci.txt|delegateMetadataUrl: ${DELEGATE_METADATA_URL}|" config.yml
+        sed -i 's|91b01067de772de3a12d99bddeab84d82a9f05c8|${NEWRELIC_LICENSE_KEY}|' newrelic.yml
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Modify Config
+    workingDirectory: $WINGS_RUNTIME_PATH
+  - command: |-
+        echo "$AWS_PROD_SECRET_KEY"
+        echo "${AWS_PROD_SECRET_KEY}"
+        echo "${serviceVariable.AWS_PROD_SECRET_KEY}"
+        export REST_JAR=$(ls $CAPSULE_JAR | sed "s|-capsule||")
+        yes | unzip $CAPSULE_JAR $REST_JAR
+        yes | unzip $REST_JAR hazelcast.xml
+
+        sed -i "s|<property name=\"hazelcast.discovery.enabled\">false|<property name=\"hazelcast.discovery.enabled\">true|" hazelcast.xml
+        sed -i "s|<name>dev|<name>${HZ_CLUSTER_NAME}|" hazelcast.xml
+        sed -i "s|<password>dev-pass|<password>${HZ_CLUSTER_NAME}-pass|" hazelcast.xml
+        sed -i "s|<management-center enabled=\"false\">http://localhost:8080/mancenter|<management-center enabled=\"true\">${MANCENTER_URL}|" hazelcast.xml
+        sed -i "s|<port auto-increment=\"true\" port-count=\"100\"|<port auto-increment=\"false\" port-count=\"1\"|" hazelcast.xml
+        sed -i "s|<discovery-strategy enabled=\"false\"|<discovery-strategy enabled=\"true\"|" hazelcast.xml
+        sed -i "s|<property name=\"access-key\">my-access-key|<property name=\"access-key\">${AWS_PROD_ACCESS_KEY}|" hazelcast.xml
+        sed -i "s|<property name=\"secret-key\">my-secret-key|<property name=\"secret-key\">${AWS_PROD_SECRET_KEY}|" hazelcast.xml
+        sed -i "s|<property name=\"region\">us-west-1|<property name=\"region\">us-west-2|" hazelcast.xml
+        sed -i "s|<property name=\"tag-key\">aws-test-cluster|<property name=\"tag-key\">hazelcast-cluster|" hazelcast.xml
+        sed -i "s|<property name=\"tag-value\">cluster1|<property name=\"tag-value\">${HZ_CLUSTER_NAME}|" hazelcast.xml
+        sed -i "s|<property name=\"security-group-name\">hazelcast|<property name=\"security-group-name\">harness-manager-servers|" hazelcast.xml
+        sed -i "s|<property name=\"iam-role\">s3access</property>||" hazelcast.xml
+        sed -i "s|<property name=\"host-header\">ec2.amazonaws.com</property>||" hazelcast.xml
+
+        zip -r $REST_JAR hazelcast.xml
+        zip -r $CAPSULE_JAR $REST_JAR
+        rm hazelcast.xml
+        rm $REST_JAR
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Modify Hazelcast
+    workingDirectory: $WINGS_RUNTIME_PATH
+  - commandUnitType: COMMAND
+    name: Start
+targetToAllEnv: true

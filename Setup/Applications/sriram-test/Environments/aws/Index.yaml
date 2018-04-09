@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: NON_PROD
+variableOverrides:
+  - name: JAVA_OPTS
+    serviceName: Sumo-Docker
+    value: -Dsumo.url=https://endpoint2.collection.us2.sumologic.com/receiver/v1/http/ZaVnC4dhaV2d-mlNvE1C9a9Z0zwxrksDTKSKg0kcPW_3qVUN6lYw-ag-anhLN2Wozl7ZN8-SrrOzRnwhpOX0mres9g3v0a2UcN-NStlB0Iop_7tFJrt0rQ==
+    valueType: TEXT
+  - name: JAVA_OPTS
+    serviceName: todolist-docker
+    value: -Dsumo.url=https://endpoint2.collection.us2.sumologic.com/receiver/v1/http/ZaVnC4dhaV2d-mlNvE1C9a9Z0zwxrksDTKSKg0kcPW_3qVUN6lYw-ag-anhLN2Wozl7ZN8-SrrOzRnwhpOX0mres9g3v0a2UcN-NStlB0Iop_7tFJrt0rQ==
+    valueType: TEXT

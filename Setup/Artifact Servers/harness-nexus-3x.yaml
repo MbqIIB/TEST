@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: NEXUS
+password: amazonkms:kuGjctUpRUyMCfpMhz_YWg
+url: http://ec2-52-91-76-213.compute-1.amazonaws.com:8081/
+username: admin

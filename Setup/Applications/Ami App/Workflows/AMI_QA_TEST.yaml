@@ -1,0 +1,317 @@
+harnessApiVersion: '1.0'
+type: CANARY
+envName: QA
+failureStrategies:
+  - executionScope: WORKFLOW
+    failureTypes:
+      - APPLICATION_ERROR
+    repairActionCode: ROLLBACK_WORKFLOW
+    retryCount: 0
+notificationRules:
+  - conditions:
+      - FAILED
+    executionScope: WORKFLOW
+    notificationGroups:
+      - Account Administrator
+phases:
+  - type: AMI
+    computeProviderName: aws
+    daemonSet: false
+    infraMappingName: aws (AWS_AMI) us-east-1.1
+    name: Phase 1
+    phaseSteps:
+      - type: AMI_AUTOSCALING_GROUP_SETUP
+        name: Setup AutoScaling Group
+        steps:
+          - type: AWS_AMI_SERVICE_SETUP
+            name: AWS AutoScaling Group Setup
+            properties:
+                autoScalingGroupName: ${app.name}_${service.name}_${env.name}
+                maxInstances: 4
+                resizeStrategy: RESIZE_NEW_FIRST
+                autoScalingSteadyStateTimeout: 10
+        stepsInParallel: false
+      - type: AMI_DEPLOY_AUTOSCALING_GROUP
+        name: Deploy Service
+        steps:
+          - type: AWS_AMI_SERVICE_DEPLOY
+            name: Upgrade AutoScaling Group
+            properties:
+                commandName: Resize AutoScaling Group
+                instanceUnitType: PERCENTAGE
+                instanceCount: 10
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        stepsInParallel: false
+      - type: WRAP_UP
+        name: Wrap Up
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Todolist
+    templateExpressions:
+      - expression: ${Service}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+            value: ${ServiceInfra_AMI}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_AMI}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
+  - type: AMI
+    computeProviderName: aws
+    daemonSet: false
+    infraMappingName: aws (AWS_AMI) us-east-1.1
+    name: Phase 2
+    phaseSteps:
+      - type: AMI_DEPLOY_AUTOSCALING_GROUP
+        name: Deploy Service
+        steps:
+          - type: AWS_AMI_SERVICE_DEPLOY
+            name: Upgrade AutoScaling Group
+            properties:
+                commandName: Resize AutoScaling Group
+                instanceUnitType: PERCENTAGE
+                instanceCount: 50
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        stepsInParallel: false
+      - type: WRAP_UP
+        name: Wrap Up
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Todolist
+    templateExpressions:
+      - expression: ${Service2}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+            value: ${ServiceInfra_AMI2}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_AMI2}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
+  - type: AMI
+    computeProviderName: aws
+    daemonSet: false
+    infraMappingName: aws (AWS_AMI) us-east-1.1
+    name: Phase 3
+    phaseSteps:
+      - type: AMI_DEPLOY_AUTOSCALING_GROUP
+        name: Deploy Service
+        steps:
+          - type: AWS_AMI_SERVICE_DEPLOY
+            name: Upgrade AutoScaling Group
+            properties:
+                commandName: Resize AutoScaling Group
+                instanceUnitType: PERCENTAGE
+                instanceCount: 100
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        steps:
+          - type: HTTP
+            name: Http
+            properties:
+                method: GET
+                url: http://fail
+        stepsInParallel: false
+      - type: WRAP_UP
+        name: Wrap Up
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Todolist
+    templateExpressions:
+      - expression: ${Service2}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+            value: ${ServiceInfra_AMI2}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_AMI2}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
+rollbackPhases:
+  - type: AMI
+    computeProviderName: aws
+    daemonSet: false
+    infraMappingName: aws (AWS_AMI) us-east-1.1
+    name: Rollback Phase 1
+    phaseNameForRollback: Phase 1
+    phaseSteps:
+      - type: AMI_DEPLOY_AUTOSCALING_GROUP
+        name: Rollback Service
+        phaseStepNameForRollback: Deploy Service
+        statusForRollback: SUCCESS
+        steps:
+          - type: AWS_AMI_SERVICE_ROLLBACK
+            name: Rollback AutoScaling Group
+            properties:
+                rollback: true
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        phaseStepNameForRollback: Verify Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+      - type: WRAP_UP
+        name: Wrap Up
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Todolist
+    templateExpressions:
+      - expression: ${Service}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+            value: ${ServiceInfra_AMI}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_AMI}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
+  - type: AMI
+    computeProviderName: aws
+    daemonSet: false
+    infraMappingName: aws (AWS_AMI) us-east-1.1
+    name: Rollback Phase 2
+    phaseNameForRollback: Phase 2
+    phaseSteps:
+      - type: AMI_DEPLOY_AUTOSCALING_GROUP
+        name: Rollback Service
+        phaseStepNameForRollback: Deploy Service
+        statusForRollback: SUCCESS
+        steps:
+          - type: AWS_AMI_SERVICE_ROLLBACK
+            name: Rollback AutoScaling Group
+            properties:
+                rollback: true
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        phaseStepNameForRollback: Verify Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+      - type: WRAP_UP
+        name: Wrap Up
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Todolist
+    templateExpressions:
+      - expression: ${Service2}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+            value: ${ServiceInfra_AMI2}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_AMI2}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
+  - type: AMI
+    computeProviderName: aws
+    daemonSet: false
+    infraMappingName: aws (AWS_AMI) us-east-1.1
+    name: Rollback Phase 3
+    phaseNameForRollback: Phase 3
+    phaseSteps:
+      - type: AMI_DEPLOY_AUTOSCALING_GROUP
+        name: Rollback Service
+        phaseStepNameForRollback: Deploy Service
+        statusForRollback: SUCCESS
+        steps:
+          - type: AWS_AMI_SERVICE_ROLLBACK
+            name: Rollback AutoScaling Group
+            properties:
+                rollback: true
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        phaseStepNameForRollback: Verify Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+      - type: WRAP_UP
+        name: Wrap Up
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Todolist
+    templateExpressions:
+      - expression: ${Service2}
+        fieldName: serviceId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+            value: ${ServiceInfra_AMI2}
+          - name: entityType
+            value: SERVICE
+      - expression: ${ServiceInfra_AMI2}
+        fieldName: infraMappingId
+        metadata:
+          - name: artifactType
+            value: AMI
+          - name: relatedField
+          - name: entityType
+            value: INFRASTRUCTURE_MAPPING
+templatized: true
+userVariables:
+  - type: ENTITY
+    description: Variable for Service entity in Rollback Phase 1
+    fixed: false
+    mandatory: true
+    name: Service
+  - type: ENTITY
+    description: Variable for Service Infra-structure entity Rollback Phase 1
+    fixed: false
+    mandatory: true
+    name: ServiceInfra_AMI
+  - type: ENTITY
+    description: Variable for Service entity in Rollback Phase 3
+    fixed: false
+    mandatory: true
+    name: Service2
+  - type: ENTITY
+    description: Variable for Service Infra-structure entity Rollback Phase 3
+    fixed: false
+    mandatory: true
+    name: ServiceInfra_AMI2

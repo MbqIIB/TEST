@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: DIRECT_KUBERNETES
+caCert: safeharness:YVh3JEEtT16oEvz2ZUKCyg
+clientCert: safeharness:orTuB1YbTjmxXNUOgQ0ZsQ
+clientKey: safeharness:UJ8xtK7QSLmY_2DB8q_t4w
+computeProviderName: puneet-ingress-cluster
+computeProviderType: KUBERNETES_CLUSTER
+deploymentType: KUBERNETES
+infraMappingType: DIRECT_KUBERNETES
+namespace: default
+password: safeharness:jAtRJCqtSIG3Y1NLRUXi-Q
+serviceName: ingress-controller

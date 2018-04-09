@@ -1,0 +1,87 @@
+harnessApiVersion: '1.0'
+type: BUILD
+notificationRules:
+  - conditions:
+      - FAILED
+      - PAUSED
+    executionScope: WORKFLOW
+    notificationGroups:
+      - QA Auto Deploy Group
+phases:
+  - daemonSet: false
+    name: Phase 1
+    phaseSteps:
+      - type: PREPARE_STEPS
+        name: Prepare Steps
+        steps:
+          - type: JENKINS
+            name: Jenkins
+            properties:
+                jobName: build-description-setter
+                jenkinsConfigId: X9GzhkXEQJi4p4UkpqoBRA
+                timeoutMillis: 600000
+                jobParameters: null
+          - type: ARTIFACT_COLLECTION
+            name: Build Workflow Collection
+            properties:
+                timeoutMillis: 300000
+                serviceName: Build-Docker
+                buildNo: '${regex.replace(''tag: ([\w-]+)'', ''$1'', ${Jenkins.description})}'
+                artifactStreamName: Build Docker ArtifactStream
+        stepsInParallel: false
+      - type: COLLECT_ARTIFACT
+        name: Collect Artifact
+        steps:
+          - type: ARTIFACT_COLLECTION
+            name: Collection Manager
+            properties:
+                serviceName: Manager
+                artifactStreamName: portal.2
+          - type: ARTIFACT_COLLECTION
+            name: Collection UI
+            properties:
+                serviceName: UI
+                artifactStreamName: ui-master.2
+          - type: ARTIFACT_COLLECTION
+            name: Collection Config Variable Test
+            properties:
+                serviceName: Config Variable Test
+                artifactStreamName: todolist_war.1
+          - type: ARTIFACT_COLLECTION
+            name: Collection CodeDeploy
+            properties:
+                serviceName: CodeDeploy
+                artifactStreamName: harnessapps_dev_165b3555e7cb5ff3ed1fa1ccb263d0a847ee4774_codedeploysample.zip
+          - type: ARTIFACT_COLLECTION
+            name: Collection Docker
+            properties:
+                serviceName: Docker
+                artifactStreamName: wingsplugins_todolist
+          - type: ARTIFACT_COLLECTION
+            name: Collection Daemon Set
+            properties:
+                serviceName: Daemon Set Service
+                artifactStreamName: gcr.io_exploration-161417_todolist
+          - type: ARTIFACT_COLLECTION
+            name: Collection AMI
+            properties:
+                serviceName: AMI-Service-test-Quality-Assurance-Setup
+                artifactStreamName: us-east-1:Name:To*
+          - type: ARTIFACT_COLLECTION
+            name: Collection Azure ACR
+            properties:
+                serviceName: Azure-AKS
+                artifactStreamName: azure-acr-nginx
+          - type: ARTIFACT_COLLECTION
+            name: Collect EcsFargate
+            properties:
+                timeoutMillis: 300000
+                serviceName: EcsFargate
+                buildNo: v1.2
+                artifactStreamName: todolist.1
+        stepsInParallel: true
+      - type: WRAP_UP
+        name: Wrap Up
+        stepsInParallel: false
+    provisionNodes: false
+templatized: false

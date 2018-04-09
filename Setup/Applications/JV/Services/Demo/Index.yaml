@@ -1,0 +1,4 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: ZIP
+description: Do not use (Reserved for Demo)

@@ -1,0 +1,44 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |
+        export HOSTNAME=$(hostname)
+        nohup java -Xms1024m -Xmx4096m -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:mygclogfilename.gc -XX:+UseParallelGC -XX:MaxGCPauseMillis=500 -Dnewrelic.environment=$NEWRELIC_ENV -Dfile.encoding=UTF-8 -jar $CAPSULE_JAR config.yml > portal.log 2>&1 &
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Start Service
+    workingDirectory: $WINGS_RUNTIME_PATH
+  - command: |-
+        set -x
+        i=0
+        while [ "$i" -lt 30 ]
+        do
+            pgrep -f "$WINGS_RUNTIME_PATH/$CAPSULE_JAR"
+            rc=$?
+            if [ "$rc" -eq 0 ]
+            then
+                exit 0
+                sleep 1
+                i=$((i+1))
+            else
+                sleep 1
+                i=$((i+1))
+            fi
+        done
+        exit 1
+    commandUnitType: PROCESS_CHECK_RUNNING
+    deploymentType: SSH
+    name: Process Running
+  - command: |-
+        echo "\nbuild: $(cat VERSION)"
+
+        echo "Manager deployed"
+    commandUnitType: EXEC
+    deploymentType: SSH
+    filePatternEntryList:
+      - filePath: portal.log
+        searchPattern: org\.eclipse\.jetty\.server\.Server.*Started
+    name: Service Started
+    workingDirectory: $WINGS_RUNTIME_PATH
+targetToAllEnv: true

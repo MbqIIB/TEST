@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Sumo
+    parallel: false
+    workflowName: log-ml-sumo
+  - type: ENV_STATE
+    name: RELIC
+    parallel: false
+    workflowName: log-ml-relic

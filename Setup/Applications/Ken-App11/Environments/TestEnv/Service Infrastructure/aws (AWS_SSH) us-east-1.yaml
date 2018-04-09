@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: aws
+computeProviderType: AWS
+connectionType: ubuntu
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-east-1
+serviceName: service1
+tags:
+  - name: Name
+    value: BitbucketServer
+usePublicDns: true

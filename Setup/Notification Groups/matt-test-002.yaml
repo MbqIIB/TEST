@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: NOTIFICATION_GROUP
+addresses:
+  - addresses:
+      - wingssoftware.slack.com
+    channelType: SLACK
+  - addresses:
+      - matt@harness.io
+    channelType: EMAIL
+defaultNotificationGroupForAccount: 'false'

@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - commandUnitType: SCP
+    deploymentType: SSH
+    destinationDirectoryPath: $WINGS_RUNTIME_PATH
+    name: Copy-0
+    source: ARTIFACTS
+  - command: 'echo "this is: " ${ARTIFACT_FILE_NAME}'
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-1
+targetToAllEnv: true

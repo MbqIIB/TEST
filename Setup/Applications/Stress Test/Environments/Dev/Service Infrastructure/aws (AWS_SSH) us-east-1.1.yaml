@@ -1,0 +1,13 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+autoScalingGroup: Anubhaw-test
+computeProviderName: aws
+computeProviderType: AWS
+connectionType: amazonkey-nonprod
+deploymentType: SSH
+desiredCapacity: 500
+infraMappingType: AWS_SSH
+provisionInstances: true
+region: us-east-1
+serviceName: War Service
+usePublicDns: true

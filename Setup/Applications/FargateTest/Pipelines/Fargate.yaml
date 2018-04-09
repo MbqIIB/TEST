@@ -1,0 +1,13 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Build
+    parallel: false
+    uuid: FzB0LxD5RMmgAMj7ypafIQ
+    workflowName: build
+  - type: ENV_STATE
+    name: FargateNoLB
+    parallel: false
+    uuid: CeOfY_0DTO6xHI4uiUlsYg
+    workflowName: FargateNoLb

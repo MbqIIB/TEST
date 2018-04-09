@@ -1,0 +1,59 @@
+harnessApiVersion: '1.0'
+type: CANARY
+envName: Quality Assurance
+failureStrategies:
+  - executionScope: WORKFLOW
+    failureTypes:
+      - APPLICATION_ERROR
+    repairActionCode: ROLLBACK_WORKFLOW
+    retryCount: 0
+notificationRules:
+  - conditions:
+      - FAILED
+    executionScope: WORKFLOW
+    notificationGroups:
+      - Account Administrator
+phases:
+  - type: AWS_CODEDEPLOY
+    computeProviderName: harness-aws-prod
+    daemonSet: false
+    infraMappingName: h-aws (AWS_CodeDeploy) us-east-1
+    name: Phase 1
+    phaseSteps:
+      - type: DEPLOY_AWSCODEDEPLOY
+        name: Deploy Service
+        steps:
+          - type: AWS_CODEDEPLOY_STATE
+            name: AWS CodeDeploy
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Hire
+rollbackPhases:
+  - type: AWS_CODEDEPLOY
+    computeProviderName: harness-aws-prod
+    daemonSet: false
+    infraMappingName: h-aws (AWS_CodeDeploy) us-east-1
+    name: Rollback Phase 1
+    phaseNameForRollback: Phase 1
+    phaseSteps:
+      - type: DEPLOY_AWSCODEDEPLOY
+        name: Deploy Service
+        phaseStepNameForRollback: Deploy Service
+        statusForRollback: SUCCESS
+        steps:
+          - type: AWS_CODEDEPLOY_ROLLBACK
+            name: Rollback AWS CodeDeploy
+            properties:
+                rollback: true
+        stepsInParallel: false
+      - type: VERIFY_SERVICE
+        name: Verify Service
+        phaseStepNameForRollback: Verify Service
+        statusForRollback: SUCCESS
+        stepsInParallel: false
+    provisionNodes: false
+    serviceName: Hire
+templatized: false

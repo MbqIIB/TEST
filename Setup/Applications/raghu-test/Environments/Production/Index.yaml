@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: PROD
+variableOverrides:
+  - name: keya
+    serviceName: tomcat service
+    value: filea
+    valueType: TEXT

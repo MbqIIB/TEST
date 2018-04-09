@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |-
+        set -x
+        pgrep -f "\-Dcatalina.home=$WINGS_RUNTIME_PATH/tomcat"
+    commandUnitType: PROCESS_CHECK_RUNNING
+    deploymentType: SSH
+    name: Process Running
+targetToAllEnv: true

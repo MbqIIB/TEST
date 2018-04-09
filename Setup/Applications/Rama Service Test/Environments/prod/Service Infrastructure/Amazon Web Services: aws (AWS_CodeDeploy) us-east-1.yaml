@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: AWS_AWS_CODEDEPLOY
+applicationName: CustomTodolist
+computeProviderName: aws
+computeProviderType: AWS
+deploymentConfig: Harness-CodeDepoy
+deploymentGroup: Custom-DeploymentGroup
+deploymentType: AWS_CODEDEPLOY
+infraMappingType: AWS_AWS_CODEDEPLOY
+region: us-east-1
+serviceName: codeDeploy

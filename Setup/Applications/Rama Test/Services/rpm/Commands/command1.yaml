@@ -1,0 +1,34 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-0
+  - command: |2-
+
+        # Execute as root and pass environment variables
+        # su -p -
+
+        # Execute as root via user credentials (with root privileges)
+        # sudo -E su -p -
+
+        # The following variables are absolute paths defined as:
+        # ${HOME}/${appName}/${serviceName}/${serviceTemplateName}/[runtime|backup|staging]
+
+        mkdir -p "$WINGS_RUNTIME_PATH"
+        mkdir -p "$WINGS_BACKUP_PATH"
+        mkdir -p "$WINGS_STAGING_PATH"
+    commandUnitType: SETUP_ENV
+    deploymentType: SSH
+    name: Setup Env-1
+  - command: |-
+        docker login --username="$DOCKER_USER_ID" --password="$DOCKER_USER_PASSWORD"
+        docker run -d -it "$DOCKER_IMAGE"
+        docker logout
+    commandUnitType: DOCKER_START
+    deploymentType: SSH
+    name: Docker Start-2
+targetEnvs:
+  - Quality Assurance
+targetToAllEnv: false

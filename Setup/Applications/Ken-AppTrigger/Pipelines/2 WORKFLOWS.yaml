@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: workflow_service1_and_2 (PROD)
+    parallel: false
+    workflowName: workflow_service1_and_2
+  - type: APPROVAL
+    name: Approval 1
+    parallel: true
+  - type: ENV_STATE
+    name: workflow_service3 (PROD)
+    parallel: false
+    workflowName: workflow_service3

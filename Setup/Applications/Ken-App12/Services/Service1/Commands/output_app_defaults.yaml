@@ -1,0 +1,16 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |
+        echo "this is KEN_PATH begin"
+        echo ${KEN_PATH}
+        echo "this is KEN_PATH end"
+        echo ""
+        echo "this is WINGS_RUNTIME_PATH begin"
+        echo ${WINGS_RUNTIME_PATH}
+        echo "this is WINGS_RUNTIME_PATH end"
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-0
+targetToAllEnv: true

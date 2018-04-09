@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+artifactPaths:
+  - target/todolist.war
+jobName: todolist_war
+metadataOnly: false
+serverName: jenkins_wings_software_KenNg_11_20_2017

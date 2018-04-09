@@ -1,0 +1,19 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: ec2_workflow
+    parallel: false
+    workflowName: ec2_workflow
+  - type: ENV_STATE
+    name: test_workflow
+    parallel: true
+    workflowName: test_workflow
+  - type: ENV_STATE
+    name: test2_wf
+    parallel: false
+    workflowName: test2_wf
+  - type: ENV_STATE
+    name: test3_wf
+    parallel: true
+    workflowName: test3_wf

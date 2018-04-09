@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: AMAZON_S3
+artifactPaths:
+  - '*.zip'
+bucketName: harness-s3test
+metadataOnly: true
+serverName: aws

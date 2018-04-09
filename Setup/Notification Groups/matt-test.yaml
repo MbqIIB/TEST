@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: NOTIFICATION_GROUP
+addresses:
+  - addresses:
+      - test
+    channelType: SLACK
+  - addresses:
+      - matt.hill.email@gmail.com
+    channelType: EMAIL
+defaultNotificationGroupForAccount: 'false'

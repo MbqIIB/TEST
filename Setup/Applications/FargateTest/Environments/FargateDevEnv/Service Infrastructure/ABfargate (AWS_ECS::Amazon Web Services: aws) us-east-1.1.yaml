@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: AWS_ECS
+assignPublicIp: true
+cluster: ABfargate
+computeProviderName: aws
+computeProviderType: AWS
+deploymentType: ECS
+infraMappingType: AWS_ECS
+launchType: FARGATE
+region: us-east-1
+securityGroupIds: sg-4e8f0c38
+serviceName: FargateNoLb
+subnetIds: subnet-ad9b92c9,subnet-2fa27920
+vpcId: vpc-bfff4dc4

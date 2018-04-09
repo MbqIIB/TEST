@@ -1,0 +1,29 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+description: Wrapped workflow in Pipeline
+pipelineStages:
+  - type: ENV_STATE
+    name: test_workflow
+    parallel: false
+    workflowName: test_workflow
+  - type: ENV_STATE
+    name: test_workflow2 (Workflow Template)
+    parallel: true
+    workflowName: test_workflow2
+    workflowVariables:
+      - name: Service
+        value: 4GocRUnKQ9GzAbRWdXJjew
+      - name: ServiceInfra_SSH
+        value: n_mLTTLyQzSUFVeYt1Imdg
+  - type: ENV_STATE
+    name: test_workflow3 (Workflow Template)
+    parallel: false
+    workflowName: test_workflow3
+    workflowVariables:
+      - name: Service
+        value: 4GocRUnKQ9GzAbRWdXJjew
+      - name: ServiceInfra_SSH
+        value: n_mLTTLyQzSUFVeYt1Imdg
+  - type: APPROVAL
+    name: Approval 3
+    parallel: true

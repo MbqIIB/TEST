@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+description: Wrapped workflow in Pipeline
+pipelineStages:
+  - type: ENV_STATE
+    name: todolistwar
+    parallel: false
+    workflowName: todolistwar

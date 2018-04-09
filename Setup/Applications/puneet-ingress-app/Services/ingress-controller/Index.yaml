@@ -1,0 +1,19 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: DOCKER
+configMapYaml: |-
+    kind: ConfigMap
+    apiVersion: v1
+    metadata:
+        name: nginx-config
+    data:
+        hsts: "True" # default is "False". Enables HTTP Strict Transport Security (HSTS): the HSTS header is added to the responses from backends. See https://www.nginx.com/blog/http-strict-transport-security-hsts-and-nginx/
+        hsts-max-age: "30000000" # default is 2592000 (1 month).
+        hsts-include-subdomains: "True" # default is "False".
+configVariables:
+  - name: sslcert
+    value: amazonkms:quOePYzQTRG-L9yXyPWuZQ
+    valueType: ENCRYPTED_TEXT
+  - name: hsts
+    value: 'False'
+    valueType: TEXT

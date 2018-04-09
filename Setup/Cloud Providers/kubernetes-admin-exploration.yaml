@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: GCP
+serviceAccountKeyFileContent: amazonkms:4LaTUH1UTf-PZRPUuX88Uw

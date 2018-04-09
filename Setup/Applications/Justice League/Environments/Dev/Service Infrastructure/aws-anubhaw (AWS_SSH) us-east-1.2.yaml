@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: aws-anubhaw
+computeProviderType: AWS
+connectionType: amazonkey-prod
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-east-1
+serviceName: Superman
+usePublicDns: true

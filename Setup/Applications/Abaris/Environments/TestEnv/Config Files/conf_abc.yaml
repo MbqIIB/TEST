@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE_OVERRIDE
+checksum: e73bbc0cac3d0324570981904459c04f
+checksumType: MD5
+encrypted: false
+fileName: conf_abc
+serviceName: war-svc
+targetFilePath: conf/abc

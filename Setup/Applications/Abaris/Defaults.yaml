@@ -1,0 +1,31 @@
+harnessApiVersion: '1.0'
+type: APPLICATION_DEFAULTS
+defaults:
+  - name: NAME_1521573325765_changed
+    value: VALUE_1521573325765_changed
+  - name: NAME_1521572797413_changed
+    value: VALUE_1521572797413_changed
+  - name: NAME_1521572533165_changed
+    value: VALUE_1521572533165_changed
+  - name: NAME_1521572523326
+    value: VALUE_1521572523326
+  - name: NAME_1521572473079_changed
+    value: VALUE_1521572473079_changed
+  - name: NAME_1521572361380_changed
+    value: VALUE_1521572361380_changed
+  - name: NAME_1521572311230_changed
+    value: VALUE_1521572311230_changed
+  - name: NAME_1521067329283_changed
+    value: VALUE_1521067329283_changed
+  - name: NAME_1521067192710_changed
+    value: VALUE_1521067192710_changed
+  - name: NAME_1521067130969_changed
+    value: VALUE_1521067130969_changed
+  - name: NAME_1521067047084_changed
+    value: VALUE_1521067047084_changed
+  - name: BACKUP_PATH
+    value: $HOME/${app.name}/${service.name}/${env.name}/backup/${timestampId}
+  - name: STAGING_PATH
+    value: $HOME/${app.name}/${service.name}/${env.name}/staging/${timestampId}
+  - name: RUNTIME_PATH
+    value: $HOME/${app.name}/${service.name}/${env.name}/runtime

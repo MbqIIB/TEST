@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: APPLICATION
+description: App for verifying a build on QA is able to deploy again as expected

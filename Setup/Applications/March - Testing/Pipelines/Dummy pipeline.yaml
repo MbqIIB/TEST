@@ -1,0 +1,13 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: test workflow (Incomplete)
+    parallel: false
+    workflowName: test workflow
+  - type: APPROVAL
+    name: Approval 1
+    parallel: false
+  - type: APPROVAL
+    name: Approval 2
+    parallel: true

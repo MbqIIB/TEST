@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE
+checksum: 01898b2f22a75185c66db5af5d87172a
+checksumType: MD5
+encrypted: false
+fileName: LI_Cover
+targetFilePath: LI_Cover
+targetToAllEnv: true

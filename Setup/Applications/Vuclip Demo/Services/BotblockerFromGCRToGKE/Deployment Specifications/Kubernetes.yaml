@@ -1,0 +1,9 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES
+containerDefinition:
+    commands:
+      - '"echo \"Hello World\""'
+    cpu: 1
+    logConfiguration: {}
+    memory: 300
+    name: DEFAULT_NAME

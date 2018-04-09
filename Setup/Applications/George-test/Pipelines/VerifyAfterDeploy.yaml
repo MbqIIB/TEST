@@ -1,0 +1,39 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Deploy1
+    parallel: false
+    workflowName: Deploy
+    workflowVariables:
+      - name: Service
+        value: _K2RqU1gRJqWlturFfnjkA
+      - name: ServiceInfra_SSH
+        value: yRCqAICBToKiJL_44cRA9A
+  - type: ENV_STATE
+    name: Deploy2
+    parallel: true
+    workflowName: Deploy
+    workflowVariables:
+      - name: Service
+        value: _NvqliGBS9SWrLxynbeZRw
+      - name: ServiceInfra_SSH
+        value: X5GIECUpSV2eRO7zGl1NEw
+  - type: ENV_STATE
+    name: Verify1
+    parallel: false
+    workflowName: Verify
+    workflowVariables:
+      - name: Service
+        value: _K2RqU1gRJqWlturFfnjkA
+      - name: ServiceInfra_SSH
+        value: yRCqAICBToKiJL_44cRA9A
+  - type: ENV_STATE
+    name: Verify2
+    parallel: true
+    workflowName: Verify
+    workflowVariables:
+      - name: Service
+        value: _NvqliGBS9SWrLxynbeZRw
+      - name: ServiceInfra_SSH
+        value: X5GIECUpSV2eRO7zGl1NEw

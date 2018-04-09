@@ -1,0 +1,85 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Build
+    parallel: false
+    uuid: R-xFbX6OS8G7vUKXEI3wAg
+    workflowName: Build Workflow
+  - type: ENV_STATE
+    name: Manager
+    parallel: false
+    uuid: Y1pf0wkkSvqvwUh5qJFBKw
+    workflowName: Manager Oregon
+    workflowVariables:
+      - name: Environment
+        value: jzL8ECMyTg-V0tSjnpxCFA
+      - name: Service
+        value: Rqk9egupRhytyIeXM2kYHA
+      - name: ServiceInfra_SSH
+        value: Z1mGdGA9R_CerPNP9yrx3Q
+  - type: ENV_STATE
+    name: UI
+    parallel: true
+    uuid: ZhzjKulHTfGc8343SDmjTw
+    workflowName: UI Oregon
+  - type: ENV_STATE
+    name: Config Variable Auto Scale
+    parallel: true
+    uuid: ML0sA40lS-Sl4ec6R9WEHQ
+    workflowName: Canary Auto Scale
+  - type: ENV_STATE
+    name: Specific Hosts
+    parallel: true
+    uuid: GV8QJShkSxauSZTJa49HcA
+    workflowName: Specific Hosts
+  - type: ENV_STATE
+    name: Code Deploy
+    parallel: true
+    uuid: 2F_IA6O9THWx-mHGi41hKA
+    workflowName: CodeDeploy
+  - type: ENV_STATE
+    name: ECS
+    parallel: true
+    uuid: _R2DykD4TxqQgV29ZhTo3g
+    workflowName: ECS Virginia
+  - type: ENV_STATE
+    name: Fargate
+    parallel: true
+    uuid: zyC50NTqTBCQFm9xAyff9A
+    workflowName: EcsFargate
+  - type: ENV_STATE
+    name: GCP Kubernetes
+    parallel: true
+    uuid: FodtYlerS7CPNK9_xEw4SQ
+    workflowName: GCP Canary Kubernetes
+  - type: ENV_STATE
+    name: Direct Kubernetes
+    parallel: true
+    uuid: JMSVgcx4S5iWv-rk__4JFw
+    workflowName: Direct Kubernetes
+  - type: ENV_STATE
+    name: Daemon Set
+    parallel: true
+    uuid: if--qvX1RoqosDzijcdf6Q
+    workflowName: Daemon Set
+  - type: ENV_STATE
+    name: Istio
+    parallel: true
+    uuid: w-O8XqT2TNarJ93cPJ1t4g
+    workflowName: Istio
+  - type: ENV_STATE
+    name: Azure AKS
+    parallel: true
+    uuid: o9LKJabdRKyJN4xR6F3tyg
+    workflowName: Azure AKS Canary
+  - type: ENV_STATE
+    name: AMI
+    parallel: true
+    uuid: 0dNAN_EoRRabzFOnGwqi3Q
+    workflowName: AMI Workflow
+  - type: ENV_STATE
+    name: Tail Log Verification
+    parallel: true
+    uuid: HPC32yPlQCyV9G0bKJB8UA
+    workflowName: Command parameter verification test

@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+artifactPaths:
+  - dbmigrations/target/dbmigrations-0.0.1-SNAPSHOT.jar
+  - delegate/setDelegateVersion.sh
+jobName: portal
+metadataOnly: false
+serverName: harness_jenkins

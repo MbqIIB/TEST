@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: DIRECT_KUBERNETES
+computeProviderName: DIRECT
+computeProviderType: DIRECT
+deploymentType: KUBERNETES
+infraMappingType: DIRECT_KUBERNETES
+masterUrl: https://api.west.kube.harness.io/
+password: amazonkms:0xwaZV0lT7mKqmf8ClrGqw
+serviceName: BotblockerFromECRToAWS
+username: admin

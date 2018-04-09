@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: SLACK
+outgoingWebhookUrl: https://hooks.slack.com/services/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

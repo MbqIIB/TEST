@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+password: amazonkms:0RGNpdaKROuKlNHu-rN4dQ
+url: http://jenkins.wings.software:8081
+username: harness

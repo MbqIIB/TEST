@@ -1,0 +1,25 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |-
+        echo "BACKUP_PATH=${BACKUP_PATH}"
+        echo "BACKUP_PATH=${WINGS_BACKUP_PATH}"
+        echo "STAGING_PATH=${STAGING_PATH}"
+        echo "WAR_DEPLOYMENT_PATH=${WAR_DEPLOYMENT_PATH}"
+        echo "WINGS_STAGING_PATH=${WINGS_STAGING_PATH}"
+        echo "WINGS_BACKUP_PATH=${WINGS_BACKUP_PATH}"
+        echo "RUNTIME_PATH=${RUNTIME_PATH}"
+        echo "WINGS_RUNTIME_PATH=${WINGS_RUNTIME_PATH}"
+        echo "serviceVariable.Dummy=${serviceVariable.Dummy}"
+        echo" KEN_PATH=${KEN_PATH}"
+
+        echo "app.name=${app.name}"
+        echo "service.name=${service.name}"
+        echo "env.name=${env.name}"
+        echo "timestampId=${timestampId}"
+        echo "HOME=$HOME"
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-0
+targetToAllEnv: true

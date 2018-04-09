@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+description: Wrapped workflow in Pipeline
+pipelineStages:
+  - type: ENV_STATE
+    name: Deploy Batman
+    parallel: false
+    workflowName: Deploy Batman

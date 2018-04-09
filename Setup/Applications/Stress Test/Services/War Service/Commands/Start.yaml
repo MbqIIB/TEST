@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: START
+commandUnitType: COMMAND
+commandUnits:
+  - command: |
+        ./startup.sh
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Start Service
+    workingDirectory: $WINGS_RUNTIME_PATH/tomcat/bin
+targetToAllEnv: true

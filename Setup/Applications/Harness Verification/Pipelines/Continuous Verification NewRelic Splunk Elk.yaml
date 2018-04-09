@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Container Canary NewRelic Splunk ELK
+    parallel: false
+    workflowName: CV Containers Canary NewRelic Splunk ELK
+  - type: ENV_STATE
+    name: Container Previous NewRelic Splunk ELK
+    parallel: false
+    workflowName: CV Containers Previous NewRelic Splunk ELK

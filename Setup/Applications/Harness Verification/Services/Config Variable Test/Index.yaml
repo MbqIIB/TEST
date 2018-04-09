@@ -1,0 +1,40 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: ZIP
+configVariables:
+  - name: rsingh
+    value: rsingh
+    valueType: TEXT
+  - name: SPACE
+    value: a  b
+    valueType: TEXT
+  - name: ENCRYPTED
+    value: safeharness:u8f0L_0KRbK1tcsI-jgC6g
+    valueType: ENCRYPTED_TEXT
+  - name: DOT
+    value: a.b
+    valueType: TEXT
+  - name: CARET
+    value: a^^^b
+    valueType: TEXT
+  - name: BANG
+    value: a!-!!b
+    valueType: TEXT
+  - name: DOLLAR
+    value: a$-$$-\$b
+    valueType: TEXT
+  - name: QUOTE
+    value: a`'"'"``""'`b
+    valueType: TEXT
+  - name: PIPE
+    value: a|-||-|||-||||b
+    valueType: TEXT
+  - name: AMP
+    value: a&_\&_&\\&&b
+    valueType: TEXT
+  - name: SLASH
+    value: a\/\\//\\\///\\\\////\\\\\/////\\\\\\//////b
+    valueType: TEXT
+  - name: PARENS
+    value: a(()(()()))(()()b
+    valueType: TEXT

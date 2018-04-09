@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: DIRECT_KUBERNETES
+computeProviderName: DIRECT
+computeProviderType: DIRECT
+deploymentType: KUBERNETES
+infraMappingType: DIRECT_KUBERNETES
+masterUrl: https://35.197.55.65/
+namespace: default
+password: amazonkms:0XTneSGVTWyh7lRI7Y_Nyg
+serviceName: hello
+username: admin

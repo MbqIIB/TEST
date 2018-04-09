@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: aws
+computeProviderType: AWS
+connectionType: prodkeypair-unencrypted
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-east-1
+serviceName: Service1
+usePublicDns: false

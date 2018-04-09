@@ -1,0 +1,17 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-0
+  - commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-1
+  - commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-2
+  - commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-3
+targetToAllEnv: true

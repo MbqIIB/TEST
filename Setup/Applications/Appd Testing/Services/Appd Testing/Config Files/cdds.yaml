@@ -1,0 +1,9 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE
+checksum: 937a25e16b31c086e12c6486d5bcba81
+checksumType: MD5
+description: cdcs
+encrypted: false
+fileName: cdds
+targetFilePath: cdds
+targetToAllEnv: true

@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: AWS_AWS_CODEDEPLOY
+applicationName: CustomTodolist
+computeProviderName: aws_ken_test3
+computeProviderType: AWS
+deploymentConfig: Custom-todolistDC
+deploymentGroup: Custom-DeploymentGroup
+deploymentType: AWS_CODEDEPLOY
+infraMappingType: AWS_AWS_CODEDEPLOY
+region: us-east-1
+serviceName: Test AWS Code Deploy

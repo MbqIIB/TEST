@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: aws_ken_test3
+computeProviderType: AWS
+connectionType: amazonkey-nonprod
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-east-1
+serviceName: service1
+tags:
+  - name: User
+    value: KenNg
+usePublicDns: true

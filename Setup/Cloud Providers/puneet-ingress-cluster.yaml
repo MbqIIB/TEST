@@ -1,0 +1,8 @@
+type: KUBERNETES_CLUSTER
+caCert: amazonkms:yY9ZIj8vR9iQ-sFYpq5xsQ
+clientCert: amazonkms:XiVyiMSKQgmd__VsfxBq3Q
+clientKey: amazonkms:R48Z2fmMR9CYxn7sF3ghNw
+clientKeyPassphrase: safeharness:3XvNoi-wT_iW3o_yhSQP9w
+masterUrl: https://ingress-test-ea885619.hcp.eastus.azmk8s.io:443
+password: amazonkms:w3pcnlNvT7uNcKg7sj-8bA
+username: clusterUser_ingress-rg_ingress-test

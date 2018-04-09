@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: ELK
+connectorType: ELASTIC_SEARCH_SERVER
+elkUrl: http://ec2-54-175-185-114.compute-1.amazonaws.com:9200/
+password: amazonkms:t3c_ca54SMm7Is7Zb8ZHiQ
+username: sriram@harness.io
+validationType: PASSWORD

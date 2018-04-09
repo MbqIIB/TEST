@@ -1,0 +1,36 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |-
+        mkdir -p "$WINGS_RUNTIME_PATH"
+        mkdir -p "$WINGS_BACKUP_PATH"
+        mkdir -p "$WINGS_STAGING_PATH"
+    commandUnitType: SETUP_ENV
+    deploymentType: SSH
+    name: Setup Runtime Paths
+  - commandUnitType: SCP
+    deploymentType: SSH
+    destinationDirectoryPath: $WINGS_RUNTIME_PATH
+    name: Copy Artifact
+    source: ARTIFACTS
+  - command: tar -xzf "$ARTIFACT_FILE_NAME"
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Expand Artifact
+    workingDirectory: $WINGS_RUNTIME_PATH
+  - commandUnitType: COPY_CONFIGS
+    deploymentType: SSH
+    destinationParentPath: $WINGS_RUNTIME_PATH
+    name: Copy Configs
+  - command: sed -i "s|<!-- apiurl -->|<script>window.apiUrl=\'${API_SERVER_URL}\'</script>|" static/index.html
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Set API Server
+    workingDirectory: $WINGS_RUNTIME_PATH
+  - command: sudo service nginx restart
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Restart nginx
+    workingDirectory: $WINGS_RUNTIME_PATH
+targetToAllEnv: true

@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: ENABLE
+commandUnitType: COMMAND
+commandUnits:
+  - command: rm -f maintenance
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Unset Maintenance Mode
+    workingDirectory: $WINGS_RUNTIME_PATH
+targetToAllEnv: true

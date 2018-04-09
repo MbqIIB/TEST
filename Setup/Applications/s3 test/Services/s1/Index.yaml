@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: WAR
+configVariables:
+  - name: a
+    value: aaa
+    valueType: TEXT

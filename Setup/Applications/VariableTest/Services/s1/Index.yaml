@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: WAR
+configVariables:
+  - name: encryptedVar2
+    value: safeharness:28Q7EZ3rR6WH7pgdMFsCOA
+    valueType: ENCRYPTED_TEXT
+  - name: plainVar1
+    value: plainVar1
+    valueType: TEXT

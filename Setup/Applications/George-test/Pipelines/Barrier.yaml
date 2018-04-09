@@ -1,0 +1,18 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Barrier 1-1
+    parallel: false
+    uuid: 6Nqg3HrKQjmS_ZOg32F6lg
+    workflowName: Barrier 1-1
+  - type: ENV_STATE
+    name: Barrier 1-2
+    parallel: true
+    uuid: DL8iLC0mQ2OBWkxcSpH6WA
+    workflowName: Barrier 1-2
+  - type: ENV_STATE
+    name: Barrier negative
+    parallel: false
+    uuid: aKGdtLAuRbCz2WW-e3waZg
+    workflowName: Barrier negative

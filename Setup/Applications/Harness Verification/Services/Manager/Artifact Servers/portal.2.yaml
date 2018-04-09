@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+artifactPaths:
+  - dist/wings-server-1.0-SNAPSHOT.tar.gz
+jobName: portal
+metadataOnly: false
+serverName: Harness Production Jenkins - for critical deployments only

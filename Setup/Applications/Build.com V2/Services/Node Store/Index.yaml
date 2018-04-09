@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: RPM
+configVariables:
+  - name: CONFIGURATIONSERVERPASSWORD1
+    value: safeharness:IHbrx52JR8mLeknQWQ7NXg
+    valueType: ENCRYPTED_TEXT
+  - name: httpUrl
+    value: google.com
+    valueType: TEXT

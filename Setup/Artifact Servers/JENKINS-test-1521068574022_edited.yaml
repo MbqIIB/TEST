@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+password: amazonkms:8qqH33C5S7SDQHRdoWxYSA
+url: https://jenkins.wings.software/
+username: wingsbuild

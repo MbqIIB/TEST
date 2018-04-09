@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE
+checksum: 282defa77c84a3e5c44c48c0b1fe529c
+checksumType: MD5
+encrypted: false
+fileName: application.properties
+targetFilePath: application.properties
+targetToAllEnv: true

@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Container Canary AppD Sumo
+    parallel: false
+    workflowName: CV Containers Canary AppD Sumo
+  - type: ENV_STATE
+    name: Container Previous AppD Sumo
+    parallel: false
+    workflowName: CV Container Previous AppD Sumo

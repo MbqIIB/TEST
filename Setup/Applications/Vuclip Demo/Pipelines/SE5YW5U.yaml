@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+description: W45UW45U
+pipelineStages:
+  - type: ENV_STATE
+    name: devDeployToAWS
+    parallel: false
+    workflowName: devDeployToAWS

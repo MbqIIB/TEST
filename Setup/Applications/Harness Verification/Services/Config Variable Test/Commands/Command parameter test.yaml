@@ -1,0 +1,43 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |2-
+
+        # Execute as root and pass environment variables
+        # su -p -
+
+        # Execute as root via user credentials (with root privileges)
+        # sudo -E su -p -
+
+        # The following variables are absolute paths defined as:
+        # ${HOME}/${appName}/${serviceName}/${serviceTemplateName}/[runtime|backup|staging]
+
+        mkdir -p "$WINGS_RUNTIME_PATH"
+        mkdir -p "$WINGS_BACKUP_PATH"
+        mkdir -p "$WINGS_STAGING_PATH"
+    commandUnitType: SETUP_ENV
+    deploymentType: SSH
+    name: Setup Env-1
+  - command: |-
+        rm -f testFile.txt
+        touch testFile.txt
+
+        forked(){
+            sleep 5s
+            echo "This is a test" >> testFile.txt
+            sleep 5s
+            echo "Waiting to start" >> testFile.txt
+            sleep 5s
+            echo "Started" >> testFile.txt
+        }
+
+        forked &
+    commandUnitType: EXEC
+    deploymentType: SSH
+    filePatternEntryList:
+      - filePath: testFile.txt
+        searchPattern: Started
+    name: Exec-0
+    workingDirectory: ${WINGS_RUNTIME_PATH}
+targetToAllEnv: true

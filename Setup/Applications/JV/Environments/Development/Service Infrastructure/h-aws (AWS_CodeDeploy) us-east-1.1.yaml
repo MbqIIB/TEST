@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: AWS_AWS_CODEDEPLOY
+applicationName: todolistwar
+computeProviderName: harness-aws-prod
+computeProviderType: AWS
+deploymentConfig: CodeDeployDefault.AllAtOnce
+deploymentGroup: todolistwarDG
+deploymentType: AWS_CODEDEPLOY
+infraMappingType: AWS_AWS_CODEDEPLOY
+region: us-east-1
+serviceName: Svc0.9

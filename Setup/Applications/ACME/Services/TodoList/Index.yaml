@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+applicationStack: Hardened Tomcat 8
+artifactType: WAR
+configVariables:
+  - name: HELLO
+    value: ${ARTIFACT_FILE_NAME}${app.name}${app.name}
+    valueType: TEXT
+  - name: HOME1
+    value: ${ARTIFACT_FILE_NAME}${app.description}${env.name}
+    valueType: TEXT
+  - name: HOME
+    value: /Users/tnhu
+    valueType: TEXT
+description: abcd

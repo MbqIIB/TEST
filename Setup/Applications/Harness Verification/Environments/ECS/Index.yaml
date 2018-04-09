@@ -1,0 +1,20 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: PROD
+variableOverrides:
+  - name: EXPERIMENTAL
+    serviceName: Learning Engine
+    value: 'true'
+    valueType: TEXT
+  - name: service_secret
+    serviceName: Learning Engine
+    value: amazonkms:tnq-OOOdTqygk8pgJp6Www
+    valueType: ENCRYPTED_TEXT
+  - name: server_url
+    serviceName: Learning Engine
+    value: ' https://api.harness.io'
+    valueType: TEXT
+  - name: learning_env
+    serviceName: Learning Engine
+    value: Experimental
+    valueType: TEXT

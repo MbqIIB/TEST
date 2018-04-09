@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE_OVERRIDE
+checksum: 439b5e94a3f82c6ad6be1e6ad3352cfe
+checksumType: MD5
+encrypted: false
+fileName: application.properties
+serviceName: Service3
+targetFilePath: application.properties

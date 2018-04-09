@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: SPLUNK
+password: amazonkms:2JBtg5Q5SBmzDnpjEEixbQ
+splunkUrl: ' https://ec2-52-54-103-49.compute-1.amazonaws.com:8089'
+username: admin

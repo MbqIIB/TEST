@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: NEXUS
+password: amazonkms:hMg60I0KTVKMurWiu8BVnQ
+url: https://nexus.wings.software
+username: admin

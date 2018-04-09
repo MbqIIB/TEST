@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Step 1
+    parallel: false
+    workflowName: Basic Workflow 1
+  - type: ENV_STATE
+    name: Basic Workflow 1 (Incomplete)
+    parallel: false
+    workflowName: Docker Workflow 1

@@ -1,0 +1,9 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+description: newpipeline
+pipelineStages:
+  - type: ENV_STATE
+    name: step1
+    parallel: false
+    uuid: VINLRgcYQua2RVYEfta1dQ
+    workflowName: workflow1

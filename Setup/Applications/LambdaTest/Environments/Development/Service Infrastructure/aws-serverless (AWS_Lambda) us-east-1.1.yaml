@@ -1,0 +1,16 @@
+harnessApiVersion: '1.0'
+type: AWS_AWS_LAMBDA
+computeProviderName: wings_KenNg
+computeProviderType: AWS
+deploymentType: AWS_LAMBDA
+infraMappingType: AWS_AWS_LAMBDA
+region: us-east-1
+role: arn:aws:iam::830767422336:role/service-role/lambdarole
+securityGroupIds:
+  - sg-e6e7f498
+  - sg-ece7f492
+serviceName: LambdaService
+subnetIds:
+  - subnet-0588565f
+  - subnet-49282c2c
+vpcId: vpc-0d67be74

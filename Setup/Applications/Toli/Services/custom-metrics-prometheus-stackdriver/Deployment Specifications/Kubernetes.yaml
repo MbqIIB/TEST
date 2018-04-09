@@ -1,0 +1,88 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES
+advancedConfig: |-
+    # Enter your Controller YAML spec below.
+    #
+    # Supported Controllers:
+    #   ReplicationController
+    #   Deployment
+    #   ReplicaSet
+    #   StatefulSet
+    #   DaemonSet
+    #
+    # Placeholders:
+    #
+    # Required: ${DOCKER_IMAGE_NAME}
+    #   - Replaced with the Docker image name and tag
+    #
+    # Optional: ${CONTAINER_NAME}
+    #   - Replaced with a container name based on the image name
+    #
+    # Optional: ${CONFIG_MAP_NAME}
+    #   - Replaced with the ConfigMap name (same as controller name)
+    #     Config map contains all unencrypted service variables and
+    #     all unencrypted config files, unless a custom
+    #     config map is provided
+    #
+    # Optional: ${SECRET_MAP_NAME}
+    #   - Replaced with the Secret name (same as controller name)
+    #     Secret map contains all encrypted service variables and
+    #     all encrypted config files
+    #
+    # Optional: ${SECRET_NAME}
+    #   - Replaced with the name of the generated image pull
+    #     secret when pulling from a private Docker registry
+    #
+    # Harness will set the controller name, namespace,
+    # selector labels, and number of replicas.
+    #
+    # Service variables will be merged into environment
+    # variables for all containers, overriding values if
+    # the name is the same.
+    #
+    # ---
+    apiVersion: "extensions/v1beta1"
+    kind: "Deployment"
+    metadata:
+        annotations: {}
+        finalizers: 
+        labels: {}
+        ownerReferences: 
+    spec:
+        replicas: 0
+        template:
+            metadata:
+                annotations: {}
+                finalizers: 
+                labels: {}
+                ownerReferences: 
+            spec:
+                containers:
+                  - command:
+                      - /bin/sh
+                       - -c
+                      - ./prometheus-dummy-exporter --metric-name=foo --metric-value=40 --port=8080
+                    image: ${DOCKER_IMAGE_NAME}
+                    imagePullPolicy: Always
+                    name: prometheus-dummy-exporter
+                    resources:
+                        requests:
+                            cpu: 100m
+                  - name: prometheus-to-sd
+                    image: gcr.io/google-containers/prometheus-to-sd:v0.2.3
+                    command:
+                      - /monitor
+                        - --source=:http://localhost:8080
+                        - --stackdriver-prefix=custom.googleapis.com
+                        - --pod-id=$(POD_ID)
+                        - --namespace-id=$(POD_NAMESPACE)
+                    env:
+                      - name: POD_ID
+                        valueFrom:
+                            fieldRef:
+                                apiVersion: v1
+                                fieldPath: metadata.uid
+                      - name: POD_NAMESPACE
+                        valueFrom:
+                            fieldRef:
+                                fieldPath: metadata.namespace

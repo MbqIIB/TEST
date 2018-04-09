@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+artifactPaths:
+  - codedeploysample.zip
+jobName: todolist_promote
+metadataOnly: false
+serverName: jenkins_rbac_ken_new

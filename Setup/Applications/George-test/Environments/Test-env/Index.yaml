@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: PROD
+variableOverrides:
+  - name: substitution
+    serviceName: Variable-substitution-service
+    value: ${serviceVariable.TESTVAR} substitution
+    valueType: TEXT
+  - name: TESTVAR
+    value: testvalue
+    valueType: TEXT

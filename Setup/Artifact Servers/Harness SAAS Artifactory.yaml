@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+password: safeharness:BCuumCLyRDmJXGVj9092Vw
+url: https://harness.jfrog.io/harness/
+username: admin

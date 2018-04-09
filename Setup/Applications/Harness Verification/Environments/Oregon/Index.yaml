@@ -1,0 +1,52 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: PROD
+variableOverrides:
+  - name: WATCHER_METADATA_URL
+    serviceName: Manager
+    value: http://wingswatchers.s3-website-us-east-1.amazonaws.com/watcherci.txt
+    valueType: TEXT
+  - name: NEWRELIC_ENV
+    serviceName: Manager
+    value: test
+    valueType: TEXT
+  - name: SERVER_PORT
+    serviceName: Manager
+    value: '3456'
+    valueType: TEXT
+  - name: UI_SERVER_URL
+    serviceName: Manager
+    value: https://ci.wings.software
+    valueType: TEXT
+  - name: MANCENTER_URL
+    serviceName: Manager
+    value: http://ec2-52-24-168-158.us-west-2.compute.amazonaws.com/mancenter
+    valueType: TEXT
+  - name: GRAPHITE_PREFIX
+    serviceName: Manager
+    value: test
+    valueType: TEXT
+  - name: GRAPHITE_SERVER
+    serviceName: Manager
+    value: ec2-34-205-52-18.compute-1.amazonaws.com
+    valueType: TEXT
+  - name: JENKINS_DELEGATE_JOB
+    serviceName: Manager
+    value: delegateci
+    valueType: TEXT
+  - name: MONGO_URI
+    serviceName: Manager
+    value: mongodb://localhost:27017/harness
+    valueType: TEXT
+  - name: HZ_CLUSTER_NAME
+    serviceName: Manager
+    value: test
+    valueType: TEXT
+  - name: DELEGATE_METADATA_URL
+    serviceName: Manager
+    value: http://wingsdelegates.s3-website-us-east-1.amazonaws.com/delegateci.txt
+    valueType: TEXT
+  - name: ALLOWED_ORIGINS
+    serviceName: Manager
+    value: https://ci.wings.software,https://ci2.harness.io
+    valueType: TEXT

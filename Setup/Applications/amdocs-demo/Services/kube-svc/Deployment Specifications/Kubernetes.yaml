@@ -1,0 +1,69 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES
+advancedConfig: |-
+    # Enter your Controller spec below.
+    #
+    # Supported Controllers:
+    #   ReplicationController
+    #   Deployment
+    #   ReplicaSet
+    #   StatefulSet
+    #   DaemonSet
+    #
+    # Placeholders:
+    #
+    # Required: ${DOCKER_IMAGE_NAME}
+    #   - Replaced with the Docker image name and tag
+    #
+    # Optional: ${CONTAINER_NAME}
+    #   - Replaced with a container name based on the image name
+    #
+    # Optional: ${SECRET_NAME}
+    #   - Replaced with the name of the generated image pull
+    #     secret when pulling from a private Docker registry
+    #
+    # Harness will set the controller name, namespace,
+    # selector labels, and number of replicas.
+    #
+    # Service variables will be merged into environment
+    # variables for all containers, overriding values if
+    # the name is the same.
+    #
+    apiVersion: v1
+    kind: ReplicationController
+    metadata:
+        name: amdocs-chat-bot-controller
+        labels:
+            app: amdocs-chat-bot-controller
+    spec:
+    # One replica of the Pod to be created
+        replicas: 1
+    # Identifies the label key and value on the Pod that
+    # this Replication Controller is responsible for managing
+        selector:
+            app: amdocs-chat-bot
+    # cookie-cutter code: used for creating new pods when necessary
+        template:
+            metadata:
+                labels:
+    # label key and value on the pod.
+    # These must match the selector above.
+                    app: amdocs-chat-bot
+            spec:
+                containers:
+                      - name: ${CONTAINER_NAME}
+                        image: ${DOCKER_IMAGE_NAME}
+                        imagePullPolicy: IfNotPresent
+                        command: ["node"]
+                        args: ["dist/amdocschatbot.js", ${serviceVariable.CommandVariables}]
+                        env:
+                              - name: HTTP_PROXY
+                                value: null
+                              - name: HTTPS_PROXY
+                                value: ""
+                              - name: NO_PROXY
+                                value: ""
+                        ports:
+                          - containerPort: 3000
+                imagePullSecrets:
+                      - name: ${SECRET_NAME}

@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: aws
+computeProviderType: AWS
+connectionType: rsingh-test
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-east-1
+serviceName: ServiceTomcat1
+tags:
+  - name: Name
+    value: George Test1
+usePublicDns: true

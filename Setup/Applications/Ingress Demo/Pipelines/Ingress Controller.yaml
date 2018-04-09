@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Default Backend
+    parallel: false
+    workflowName: Default Backend
+  - type: ENV_STATE
+    name: Nginx Ingress Controller
+    parallel: false
+    workflowName: Nginx Ingress Controller

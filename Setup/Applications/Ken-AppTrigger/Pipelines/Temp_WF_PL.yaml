@@ -1,0 +1,16 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: canary_wf_template (Workflow Template)
+    parallel: false
+    workflowName: canary_wf_template
+    workflowVariables:
+      - name: ServiceInfra2_SSH
+        value: Bt_Bl5-cQUyMHKC3vdswRA
+      - name: ServiceInfra1_SSH
+        value: LCCV_UnjRQKIF_xFvq9Nzw
+      - name: Environment
+        value: bs2VNkAGTHeOqZG5xvNUEQ
+      - name: ServiceInfra_SSH
+        value: PRoTaL6yTeWEhk2uBJLhJQ

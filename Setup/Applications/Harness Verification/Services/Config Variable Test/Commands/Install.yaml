@@ -1,0 +1,59 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: |-
+        mkdir -p "$WINGS_RUNTIME_PATH"
+        mkdir -p "$WINGS_BACKUP_PATH"
+        mkdir -p "$WINGS_STAGING_PATH"
+    commandUnitType: SETUP_ENV
+    deploymentType: SSH
+    name: Setup Runtime Paths
+  - commandUnitType: SCP
+    deploymentType: SSH
+    destinationDirectoryPath: $WINGS_RUNTIME_PATH
+    name: Copy Artifact
+    source: ARTIFACTS
+  - commandUnitType: COPY_CONFIGS
+    deploymentType: SSH
+    destinationParentPath: $WINGS_RUNTIME_PATH
+    name: Copy Configs
+  - command: |-
+        #!/bin/bash
+        printenv
+
+        echo "$SLASH"
+        # echo "${serviceVariable.SLASH}"
+        echo "$PIPE"
+        # echo "${serviceVariable.PIPE}"
+        echo "$QUOTE"
+        # echo "${serviceVariable.QUOTE}"
+        echo "$ENCRYPTED"
+        # echo "${serviceVariable.ENCRYPTED}"
+
+        if [[ "$ENCRYPTED" != "encrypted_text" ]]
+        then
+            echo "encrypted variable wasn't decrypted"
+            exit 1
+        fi
+
+        cat encrypted.txt
+        encryptedValue=$(<encrypted.txt)
+        if [[ "$encryptedValue" != "this is going to be encrypted" ]]
+        then
+            echo "encrypted file couldn't be read"
+            exit 1
+        fi
+
+        cat unencrypted.txt
+        unencryptedValue=$(<unencrypted.txt)
+        if [[ "$unencryptedValue" != "this is not encrytped" ]]
+        then
+            echo "unencrypted file couldn't be read"
+            exit 1
+        fi
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Exec-4
+    workingDirectory: $WINGS_RUNTIME_PATH
+targetToAllEnv: true

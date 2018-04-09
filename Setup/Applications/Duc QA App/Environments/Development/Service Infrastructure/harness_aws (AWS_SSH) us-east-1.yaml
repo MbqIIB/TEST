@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: harness_awd_nonprod
+computeProviderType: AWS
+connectionType: brett-prod-key
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-east-1
+serviceName: WAR Service 1
+usePublicDns: true

@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: PROD
+variableOverrides:
+  - name: encryptedVar2
+    serviceName: s1
+    value: safeharness:bjXFP9oVQe2IKa45m7MoBA
+    valueType: ENCRYPTED_TEXT
+  - name: plainVar1
+    serviceName: s1
+    value: overrideVar1
+    valueType: TEXT

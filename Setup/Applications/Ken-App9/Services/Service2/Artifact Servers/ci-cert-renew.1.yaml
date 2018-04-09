@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+artifactPaths:
+  - ''
+jobName: ci-cert-renew
+metadataOnly: true
+serverName: harness_jenkins

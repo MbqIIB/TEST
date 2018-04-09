@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: ELK
+connectorType: ELASTIC_SEARCH_SERVER
+elkUrl: https://ec2-34-207-78-53.compute-1.amazonaws.com:9200
+password: amazonkms:AVvaWX8qQx2OFs6b6QBR8w
+username: elastic
+validationType: PASSWORD

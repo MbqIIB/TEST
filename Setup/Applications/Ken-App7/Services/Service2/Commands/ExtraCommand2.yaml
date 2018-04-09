@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: '"this is 2nd command"'
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: ExtraCommand2_step
+    workingDirectory: ${WINGS_RUNTIME_PATH}
+targetToAllEnv: true

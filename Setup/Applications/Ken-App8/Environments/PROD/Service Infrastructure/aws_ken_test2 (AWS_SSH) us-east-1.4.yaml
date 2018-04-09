@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: AWS_SSH
+computeProviderName: aws_ken_test3
+computeProviderType: AWS
+connectionType: rsingh-test-2
+deploymentType: SSH
+desiredCapacity: 0
+infraMappingType: AWS_SSH
+provisionInstances: false
+region: us-east-1
+serviceName: WarToEC2
+usePublicDns: true

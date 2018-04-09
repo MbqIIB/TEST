@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: ELK
+connectorType: ELASTIC_SEARCH_SERVER
+elkUrl: https://8012fa46-2ecc-4bd4-95d6-9066e219f004-es.logit.io/
+password: amazonkms:fc-yjagjT5yr7IRVpmY7cg
+username: apikey
+validationType: TOKEN

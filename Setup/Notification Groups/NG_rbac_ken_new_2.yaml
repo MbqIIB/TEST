@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: NOTIFICATION_GROUP
+addresses:
+  - channelType: SLACK
+  - addresses:
+      - ken@harness.io
+      - ken.run.ng@gmail.com
+      - kng_bcit@hotmail.com
+    channelType: EMAIL
+defaultNotificationGroupForAccount: 'false'

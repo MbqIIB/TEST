@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: ECS
+containerDefinition:
+    commands:
+      - ''
+    logConfiguration:
+        logDriver: splunk
+    name: DEFAULT_NAME

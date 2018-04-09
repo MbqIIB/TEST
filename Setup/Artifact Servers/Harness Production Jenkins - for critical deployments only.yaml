@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+password: amazonkms:VSxixCiyQBGIhG10tg_RbA
+url: https://jenkins.harness.io
+username: harness-prod-deploy

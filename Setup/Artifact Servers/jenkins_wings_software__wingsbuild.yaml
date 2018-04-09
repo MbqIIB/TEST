@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+password: safeharness:iMfJ3AE4QR-R9YVH2z9Pkg
+url: https://jenkins.wings.software/
+username: wingsbuild

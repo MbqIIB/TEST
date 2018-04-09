@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: AMAZON_S3
+artifactPaths:
+  - jobs/delegateci/1028/delegate.jar
+bucketName: wingsdelegates
+metadataOnly: false
+serverName: harness-aws-prod

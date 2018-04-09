@@ -1,0 +1,49 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: JAR
+configVariables:
+  - name: WATCHER_METADATA_URL
+    value: http://wingswatchers.s3-website-us-east-1.amazonaws.com/watcherci.txt
+    valueType: TEXT
+  - name: GRAPHITE_SERVER
+    value: carbon.hostedgraphite.com
+    valueType: TEXT
+  - name: GRAPHITE_PREFIX
+    value: server
+    valueType: TEXT
+  - name: SERVER_PORT
+    value: '9090'
+    valueType: TEXT
+  - name: HZ_CLUSTER_NAME
+    value: test
+    valueType: TEXT
+  - name: MANCENTER_URL
+    value: http://localhost:8080/mancenter
+    valueType: TEXT
+  - name: DELEGATE_METADATA_URL
+    value: http://wingsdelegates.s3-website-us-east-1.amazonaws.com/delegateci.txt
+    valueType: TEXT
+  - name: NEWRELIC_ENV
+    value: development
+    valueType: TEXT
+  - name: JENKINS_DELEGATE_JOB
+    value: none
+    valueType: TEXT
+  - name: ALLOWED_ORIGINS
+    value: ' https://localhost:8000'
+    valueType: TEXT
+  - name: NEWRELIC_LICENSE_KEY
+    value: a8e43a608ff51733b30e0acda98b89d16c6c5b11
+    valueType: TEXT
+  - name: AWS_PROD_SECRET_KEY
+    value: safeharness:gRfb4SedROy9ruORmk2rTQ
+    valueType: ENCRYPTED_TEXT
+  - name: AWS_PROD_ACCESS_KEY
+    value: AKIAJEHDI7RTXHBY6U4A
+    valueType: TEXT
+  - name: CAPSULE_JAR
+    value: rest-0.0.1-SNAPSHOT-capsule.jar
+    valueType: TEXT
+  - name: UI_SERVER_URL
+    value: http:\/\/ec2-34-210-92-162.us-west-2.compute.amazonaws.com
+    valueType: TEXT

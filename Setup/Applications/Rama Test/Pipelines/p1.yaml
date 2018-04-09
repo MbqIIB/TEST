@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: testS3
+    parallel: false
+    workflowName: testS3
+  - type: ENV_STATE
+    name: s2
+    parallel: false
+    workflowName: testECR

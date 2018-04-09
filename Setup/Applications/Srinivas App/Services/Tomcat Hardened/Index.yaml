@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+applicationStack: Hardened Tomcat 8
+artifactType: WAR
+configVariables:
+  - name: JAVA_HOME
+    value: somevalue
+    valueType: TEXT

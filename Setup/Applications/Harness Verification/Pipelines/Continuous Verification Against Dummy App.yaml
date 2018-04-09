@@ -1,0 +1,11 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Sanity
+    parallel: false
+    workflowName: CV Physical Hosts Sanity Previous Analysis
+  - type: ENV_STATE
+    name: Continuous Verification Physical Hosts
+    parallel: true
+    workflowName: CV Physical Hosts Previous Analysis

@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE
+checksum: bfdb50352d4979e4d15a55a30582c4b5
+checksumType: MD5
+encrypted: false
+fileName: conf_abc
+targetFilePath: conf/abc
+targetToAllEnv: true

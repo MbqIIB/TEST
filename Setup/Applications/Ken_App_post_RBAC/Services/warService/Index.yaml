@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+artifactType: WAR
+configVariables:
+  - name: ServiceKen_encrypt
+    value: amazonkms:dYWKkkZER72OajMCezQnpw
+    valueType: ENCRYPTED_TEXT
+  - name: ConfigVar
+    value: ConfigVar_test_value
+    valueType: TEXT

@@ -1,0 +1,13 @@
+harnessApiVersion: '1.0'
+type: AWS_AMI
+autoScalingGroupName: rushabh-test-autoscaling-grp
+classicLoadBalancers:
+  - rsingh-test
+computeProviderName: aws
+computeProviderType: AWS
+deploymentType: AMI
+infraMappingType: AWS_AMI
+region: us-east-1
+serviceName: 'TodoList Ami Service '
+targetGroupArns:
+  - arn:aws:elasticloadbalancing:us-east-1:830767422336:targetgroup/rsingh/a84f8b484749319e

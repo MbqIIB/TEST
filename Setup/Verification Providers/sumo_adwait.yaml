@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: SUMO
+accessId: amazonkms:M0Qz8AIuQ1Gki290hn1MzQ
+accessKey: amazonkms:qX0vzv7DR4K933BEz7cPzQ
+sumoUrl: https://api.us2.sumologic.com/api/v1/

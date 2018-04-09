@@ -1,0 +1,8 @@
+type: KUBERNETES_CLUSTER
+caCert: safeharness:QtUN7-knQ7SbaBubFki-Vg
+clientCert: safeharness:tVtJeuWnStiesvbU9vFVug
+clientKey: safeharness:ThmX5ksiT2y8Z483Rqwymw
+clientKeyPassphrase: safeharness:MSI-j41QS7uVuH4Y1LNUbg
+masterUrl: https://35.184.195.175/
+password: amazonkms:On08LhwQRp-6SELlqS5NrQ
+username: admin

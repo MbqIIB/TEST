@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: OTHER
+commandUnitType: COMMAND
+commandUnits:
+  - command: echo "This is the artifact file:" ${ARTIFACT_FILE_NAME}
+    commandUnitType: EXEC
+    deploymentType: SSH
+    name: Collect Artifact File
+    workingDirectory: ${WINGS_RUNTIME_PATH}
+targetToAllEnv: true

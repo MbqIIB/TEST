@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: DIRECT_KUBERNETES
+caCert: safeharness:Hu_vvzwsTGibPdHBuFU2Vg
+clientCert: safeharness:DOxI_yIeSwGsSY4ZHVmjvg
+clientKey: safeharness:zGBsmId_TgyVCZOxUrvEww
+computeProviderName: DIRECT
+computeProviderType: DIRECT
+deploymentType: KUBERNETES
+infraMappingType: DIRECT_KUBERNETES
+masterUrl: https://35.184.195.175/
+namespace: default
+password: amazonkms:EXWr04j1Q-OHq1cbM5InnA
+serviceName: Nexus Docker
+username: admin

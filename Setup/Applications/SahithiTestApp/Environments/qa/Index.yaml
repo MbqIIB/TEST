@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: ENVIRONMENT
+environmentType: NON_PROD
+variableOverrides:
+  - name: dde
+    serviceName: rpm
+    value: '12'
+    valueType: TEXT
+  - name: Test
+    serviceName: Catalog
+    value: '333'
+    valueType: TEXT

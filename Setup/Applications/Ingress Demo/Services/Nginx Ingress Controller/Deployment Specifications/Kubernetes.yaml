@@ -1,0 +1,74 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES
+advancedConfig: |
+    # Enter your Controller YAML spec below.
+    #
+    # Supported Controllers:
+    #   ReplicationController
+    #   Deployment
+    #   ReplicaSet
+    #   StatefulSet
+    #   DaemonSet
+    #
+    # Placeholders:
+    #
+    # Required: ${DOCKER_IMAGE_NAME}
+    #   - Replaced with the Docker image name and tag
+    #
+    # Optional: ${CONTAINER_NAME}
+    #   - Replaced with a container name based on the image name
+    #
+    # Optional: ${SECRET_NAME}
+    #   - Replaced with the name of the generated image pull
+    #     secret when pulling from a private Docker registry
+    #
+    # Harness will set the controller name, namespace,
+    # selector labels, and number of replicas.
+    #
+    # Service variables will be merged into environment
+    # variables for all containers, overriding values if
+    # the name is the same.
+    #
+    # ---
+    kind: Deployment
+    apiVersion: extensions/v1beta1
+    metadata:
+        name: ingress-nginx
+    spec:
+        template:
+            metadata:
+                labels:
+                    app: ingress-nginx
+            spec:
+                terminationGracePeriodSeconds: 60
+                containers:
+                  - image: ${DOCKER_IMAGE_NAME}
+                    name: ${CONTAINER_NAME}
+                    imagePullPolicy: Always
+                    ports:
+                          - name: http
+                            containerPort: 80
+                            protocol: TCP
+                          - name: https
+                            containerPort: 443
+                            protocol: TCP
+                  livenessProbe:
+                        httpGet:
+                            path: /healthz
+                            port: 10254
+                            scheme: HTTP
+                        initialDelaySeconds: 30
+                        timeoutSeconds: 5
+                    env:
+                          - name: POD_NAME
+                            valueFrom:
+                                fieldRef:
+                                    fieldPath: metadata.name
+                          - name: POD_NAMESPACE
+                            valueFrom:
+                                fieldRef:
+                                    fieldPath: metadata.namespace
+                    args:
+                      - /nginx-ingress-controller
+                        - --default-backend-service=$(POD_NAMESPACE)/nginx-default-backend
+                        - --configmap=$(POD_NAMESPACE)/${CONFIG_MAP_NAME}

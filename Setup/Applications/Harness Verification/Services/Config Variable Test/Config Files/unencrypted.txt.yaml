@@ -1,0 +1,9 @@
+harnessApiVersion: '1.0'
+type: CONFIG_FILE
+checksum: 77c03582bd04eb87a8819db60602e754
+checksumType: MD5
+description: unencrypted
+encrypted: false
+fileName: unencrypted.txt
+targetFilePath: unencrypted.txt
+targetToAllEnv: true

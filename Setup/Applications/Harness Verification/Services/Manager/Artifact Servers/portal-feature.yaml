@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+artifactPaths:
+  - rest/deployManager.sh
+jobName: portal-feature
+metadataOnly: false
+serverName: Harness Production Jenkins - for critical deployments only

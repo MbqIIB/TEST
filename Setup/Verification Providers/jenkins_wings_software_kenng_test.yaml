@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+password: safeharness:HR9R-LTFS1SYRuDWVP0rUA
+url: https://jenkins.wings.software/
+username: kenng_test

@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+  - type: ENV_STATE
+    name: Build Workflow (Workflow Template)
+    parallel: false
+    workflowName: Build Workflow
+    workflowVariables:
+      - name: sourceBranch
+      - name: sourceRepositoryOwner
+      - name: param1
+  - type: ENV_STATE
+    name: deploy
+    parallel: false
+    workflowName: toli-deploy-to-ecr
