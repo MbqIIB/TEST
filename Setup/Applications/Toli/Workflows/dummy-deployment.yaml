@@ -31,27 +31,26 @@ phases:
                 replicationControllerName: ${service.name}
                 fixedInstances: '1'
                 customMetricYamlConfig: |-
-          ---
                     apiVersion: autoscaling/v2beta1
                     kind: HorizontalPodAutoscaler
                     metadata:
-                        name: dummy-deployment-hpa
-                        namespace: default
+                            name: dummy-deployment-hpa
+                            namespace: default
                     spec:
-                        scaleTargetRef:
-                            apiVersion: apps/v1beta1
-                            kind: Deployment
-                            name: dummy-deployment
-                        minReplicas: 1
-                        maxReplicas: 5
-                        metrics:
-                          - type: Object
-                            object:
-                                target:
-                                    kind: Pod
-                                    name: custom-metrics-prometheus-stackdriver.0-78fb5bdfd4-z7b2c
-                                metricName: foo
-                                targetValue: 20
+                            scaleTargetRef:
+                                    apiVersion: apps/v1beta1
+                                    kind: Deployment
+                                    name: dummy-deployment
+                            minReplicas: 1
+                            maxReplicas: 5
+                            metrics:
+                                  - type: Object
+                                    object:
+                                            target:
+                                                    kind: Pod
+                                                    name: custom-metrics-prometheus-stackdriver.0-78fb5bdfd4-z7b2c
+                                            metricName: foo
+                                            targetValue: 20
                 useIstioRouteRule: false
                 ingressYaml: |-
                     # Required placeholders: ${SERVICE_NAME} and ${SERVICE_PORT}
@@ -59,17 +58,17 @@ phases:
                     apiVersion: extensions/v1beta1
                     kind: Ingress
                     metadata:
-                      name: name-will-be-replaced
-                      annotations:
-                        ingress.kubernetes.io/rewrite-target: /
+                        name: name-will-be-replaced
+                        annotations:
+                            ingress.kubernetes.io/rewrite-target: /
                     spec:
-                        rules:
-                          - http:
-                              paths:
-                                - path: /path
-                                  backend:
-                                    serviceName: ${SERVICE_NAME}
-                                    servicePort: ${SERVICE_PORT}
+                            rules:
+                                  - http:
+                                        paths:
+                                              - path: /path
+                                                backend:
+                                                    serviceName: ${SERVICE_NAME}
+                                                    servicePort: ${SERVICE_PORT}
                 desiredInstanceCount: fixedInstances
                 useIngress: false
                 useAutoscaler: true
