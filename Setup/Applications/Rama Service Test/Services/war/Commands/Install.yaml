@@ -3,7 +3,7 @@ type: INSTALL
 commandUnitType: COMMAND
 commandUnits:
   - command: |-
-        v2
+        v3
         # Execute as root and pass environment variables
         # su -p -
 
