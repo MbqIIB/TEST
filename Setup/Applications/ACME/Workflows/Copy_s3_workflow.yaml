@@ -2,159 +2,155 @@ harnessApiVersion: '1.0'
 type: BASIC
 envName: Development
 failureStrategies:
-  - executionScope: WORKFLOW
-    failureTypes:
-      - APPLICATION_ERROR
-    repairActionCode: ROLLBACK_WORKFLOW
-    retryCount: 0
+- executionScope: WORKFLOW
+  failureTypes:
+  - APPLICATION_ERROR
+  repairActionCode: ROLLBACK_WORKFLOW
+  retryCount: 0
 notificationRules:
-  - conditions:
-      - FAILED
-    executionScope: WORKFLOW
-    notificationGroups:
-      - Account Administrator
+- conditions:
+  - FAILED
+  executionScope: WORKFLOW
+  notificationGroups:
+  - Account Administrator
 phases:
-  - type: AWS_CODEDEPLOY
-    computeProviderName: aws_ken_test3
-    daemonSet: false
-    infraMappingName: aws (AWS_CodeDeploy) us-east-1
-    name: Phase 1
-    phaseSteps:
-      - type: PREPARE_STEPS
-        name: Prepare Steps
-        steps:
-          - type: EMAIL
-            name: Email
-            properties:
-                subject: test email for service variable
-                body: |-
-                    the deploys revision is: ${workflow.variables.DEPLOY_REVISION}
-                    the artifact description is: ${artifact.description}
-                    the artifact buildNo is: ${artifact.buildNo}
-                    the artifact fileName is: ${ARTIFACT_FILE_NAME}
-                    artifact dislay name is: ${artifact.displayName}
-                toAddress: ken@harness.io
-        stepsInParallel: false
-      - type: DEPLOY_AWSCODEDEPLOY
-        name: Deploy Service
-        stepsInParallel: false
-      - type: VERIFY_SERVICE
-        name: Verify Service
-        stepsInParallel: false
-      - type: WRAP_UP
-        name: Wrap Up
-        stepsInParallel: false
-    provisionNodes: false
-    serviceName: Test AWS Code Deploy
-    templateExpressions:
-      - expression: ${Service}
-        fieldName: serviceId
-        metadata:
-          - name: artifactType
-            value: AWS_CODEDEPLOY
-          - name: relatedField
-            value: ${ServiceInfra_AWS_CodeDeploy}
-          - name: entityType
-            value: SERVICE
-      - expression: ${ServiceInfra_AWS_CodeDeploy}
-        fieldName: infraMappingId
-        metadata:
-          - name: artifactType
-            value: AWS_CODEDEPLOY
-          - name: relatedField
-          - name: entityType
-            value: INFRASTRUCTURE_MAPPING
-rollbackPhases:
-  - type: AWS_CODEDEPLOY
-    computeProviderName: aws_ken_test3
-    daemonSet: false
-    infraMappingName: aws (AWS_CodeDeploy) us-east-1
-    name: Rollback Phase 1
-    phaseNameForRollback: Phase 1
-    phaseSteps:
-      - type: DEPLOY_AWSCODEDEPLOY
-        name: Deploy Service
-        phaseStepNameForRollback: Deploy Service
-        statusForRollback: SUCCESS
-        steps:
-          - type: AWS_CODEDEPLOY_ROLLBACK
-            name: Rollback AWS CodeDeploy
-            properties:
-                rollback: true
-        stepsInParallel: false
-      - type: VERIFY_SERVICE
-        name: Verify Service
-        phaseStepNameForRollback: Verify Service
-        statusForRollback: SUCCESS
-        stepsInParallel: false
-      - type: WRAP_UP
-        name: Wrap Up
-        stepsInParallel: false
-    provisionNodes: false
-    serviceName: Test AWS Code Deploy
-    templateExpressions:
-      - expression: ${Service}
-        fieldName: serviceId
-        metadata:
-          - name: artifactType
-            value: AWS_CODEDEPLOY
-          - name: relatedField
-            value: ${ServiceInfra_AWS_CodeDeploy}
-          - name: entityType
-            value: SERVICE
-      - expression: ${ServiceInfra_AWS_CodeDeploy}
-        fieldName: infraMappingId
-        metadata:
-          - name: artifactType
-            value: AWS_CODEDEPLOY
-          - name: relatedField
-          - name: entityType
-            value: INFRASTRUCTURE_MAPPING
-templateExpressions:
-  - expression: ${Environment}
-    fieldName: envId
-    metadata:
-      - name: artifactType
-        value: AWS_CODEDEPLOY
-      - name: relatedField
-      - name: entityType
-        value: ENVIRONMENT
+- computeProviderName: aws_ken_test3
+  daemonSet: false
+  name: Phase 1
+  phaseSteps:
+  - type: PREPARE_STEPS
+    name: Prepare Steps
+    steps:
+    - type: EMAIL
+      name: Email
+      properties:
+        subject: test email for service variable
+        body: |-
+          the deploys revision iz: ${workflow.variables.DEPLOY_REVISION
+          the artifact description is: ${artifact.description}
+          the artifact buildNo is: ${artifact.buildNo}
+          the artifact fileName is: ${ARTIFACT_FILE_NAME}
+          artifact dislay name is: ${artifact.displayName}
+        toAddress: ken@harness.io
+    stepsInParallel: false
+  - type: DEPLOY_AWSCODEDEPLOY
+    name: Deploy Service
+    stepsInParallel: false
+  - type: VERIFY_SERVICE
+    name: Verify Service
+    stepsInParallel: false
+  - type: WRAP_UP
+    name: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: Test AWS Code Deploy
+  templateExpressions:
   - expression: ${Service}
     fieldName: serviceId
     metadata:
-      - name: artifactType
-        value: AWS_CODEDEPLOY
-      - name: relatedField
-        value: ${ServiceInfra_AWS_CodeDeploy}
-      - name: entityType
-        value: SERVICE
+    - name: artifactType
+      value: AWS_CODEDEPLOY
+    - name: relatedField
+      value: ${ServiceInfra_AWS_CodeDeploy}
+    - name: entityType
+      value: SERVICE
   - expression: ${ServiceInfra_AWS_CodeDeploy}
     fieldName: infraMappingId
     metadata:
-      - name: artifactType
-        value: AWS_CODEDEPLOY
-      - name: relatedField
-      - name: entityType
-        value: INFRASTRUCTURE_MAPPING
+    - name: artifactType
+      value: AWS_CODEDEPLOY
+    - name: relatedField
+    - name: entityType
+      value: INFRASTRUCTURE_MAPPING
+rollbackPhases:
+- computeProviderName: aws_ken_test3
+  daemonSet: false
+  name: Rollback Phase 1
+  phaseNameForRollback: Phase 1
+  phaseSteps:
+  - type: DEPLOY_AWSCODEDEPLOY
+    name: Deploy Service
+    phaseStepNameForRollback: Deploy Service
+    statusForRollback: SUCCESS
+    steps:
+    - type: AWS_CODEDEPLOY_ROLLBACK
+      name: Rollback AWS CodeDeploy
+      properties:
+        rollback: true
+    stepsInParallel: false
+  - type: VERIFY_SERVICE
+    name: Verify Service
+    phaseStepNameForRollback: Verify Service
+    statusForRollback: SUCCESS
+    stepsInParallel: false
+  - type: WRAP_UP
+    name: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: Test AWS Code Deploy
+  templateExpressions:
+  - expression: ${Service}
+    fieldName: serviceId
+    metadata:
+    - name: artifactType
+      value: AWS_CODEDEPLOY
+    - name: relatedField
+      value: ${ServiceInfra_AWS_CodeDeploy}
+    - name: entityType
+      value: SERVICE
+  - expression: ${ServiceInfra_AWS_CodeDeploy}
+    fieldName: infraMappingId
+    metadata:
+    - name: artifactType
+      value: AWS_CODEDEPLOY
+    - name: relatedField
+    - name: entityType
+      value: INFRASTRUCTURE_MAPPING
+templateExpressions:
+- expression: ${Environment}
+  fieldName: envId
+  metadata:
+  - name: artifactType
+    value: AWS_CODEDEPLOY
+  - name: relatedField
+  - name: entityType
+    value: ENVIRONMENT
+- expression: ${Service}
+  fieldName: serviceId
+  metadata:
+  - name: artifactType
+    value: AWS_CODEDEPLOY
+  - name: relatedField
+    value: ${ServiceInfra_AWS_CodeDeploy}
+  - name: entityType
+    value: SERVICE
+- expression: ${ServiceInfra_AWS_CodeDeploy}
+  fieldName: infraMappingId
+  metadata:
+  - name: artifactType
+    value: AWS_CODEDEPLOY
+  - name: relatedField
+  - name: entityType
+    value: INFRASTRUCTURE_MAPPING
 templatized: true
 userVariables:
-  - type: ENTITY
-    description: Variable for Environment entity
-    fixed: false
-    mandatory: true
-    name: Environment
-  - type: ENTITY
-    description: Variable for Service entity
-    fixed: false
-    mandatory: true
-    name: Service
-  - type: ENTITY
-    description: Variable for Service Infra-structure entity
-    fixed: false
-    mandatory: true
-    name: ServiceInfra_AWS_CodeDeploy
-  - type: TEXT
-    fixed: false
-    mandatory: false
-    name: DEPLOY_REVISION
-    value: ${artifact.description}
+- type: ENTITY
+  description: Variable for Environment entity
+  fixed: false
+  mandatory: true
+  name: Environment
+- type: ENTITY
+  description: Variable for Service entity
+  fixed: false
+  mandatory: true
+  name: Service
+- type: ENTITY
+  description: Variable for Service Infra-structure entity
+  fixed: false
+  mandatory: true
+  name: ServiceInfra_AWS_CodeDeploy
+- type: TEXT
+  fixed: false
+  mandatory: false
+  name: DEPLOY_REVISION
+  value: ${artifact.description}
