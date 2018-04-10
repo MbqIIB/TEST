@@ -47,7 +47,7 @@ phases:
       properties:
         commandName: Resize Service Cluster
         instanceUnitType: PERCENTAGE
-        instanceCount: '50'
+        instanceCount: '100'
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
