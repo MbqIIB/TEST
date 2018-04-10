@@ -2,8 +2,10 @@ harnessApiVersion: '1.0'
 type: OTHER
 commandUnitType: COMMAND
 commandUnits:
-  - command: if pgrep java; then killall java; fi
-    commandUnitType: EXEC
-    deploymentType: SSH
-    name: Exec-0
+- command: if pgrep java; then killall java; fi
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec-0
+- commandUnitType: COMMAND
+  name: Install
 targetToAllEnv: true
