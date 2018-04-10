@@ -56,8 +56,6 @@ commandUnits:
   commandUnitType: PROCESS_CHECK_STOPPED
   deploymentType: SSH
   name: Process Stopped
-- commandUnitType: COMMAND
-  name: ken_PL
 - command: |-
     set -x
     nc -v -z -w 5 localhost 8080
