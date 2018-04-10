@@ -2,7 +2,8 @@ harnessApiVersion: '1.0'
 type: OTHER
 commandUnitType: COMMAND
 commandUnits:
-- commandUnitType: EXEC
+- command: echo "1"
+  commandUnitType: EXEC
   deploymentType: SSH
   name: '1'
 - command: whoami
