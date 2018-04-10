@@ -50,6 +50,4 @@ commandUnits:
   deploymentType: SSH
   destinationParentPath: $WINGS_RUNTIME_PATH
   name: Copy Configs
-- commandUnitType: COMMAND
-  name: Start
 targetToAllEnv: true
