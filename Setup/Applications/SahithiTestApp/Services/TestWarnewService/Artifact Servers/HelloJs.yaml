@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+artifactPaths:
+- hello.zip
+jobName: HelloJs
+metadataOnly: false
+serverName: Harness Production Jenkins - for critical deployments only
