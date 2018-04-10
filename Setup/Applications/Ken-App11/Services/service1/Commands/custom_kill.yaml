@@ -8,4 +8,6 @@ commandUnits:
   name: Exec-0
 - commandUnitType: COMMAND
   name: Install
+- commandUnitType: COMMAND
+  name: echo_artifacts
 targetToAllEnv: true
