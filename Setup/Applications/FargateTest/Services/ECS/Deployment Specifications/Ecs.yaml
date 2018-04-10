@@ -4,8 +4,6 @@ containerDefinition:
   commands:
   - ''
   cpu: 1
-  logConfiguration:
-    logDriver: awslogs
   memory: 1024
   name: DEFAULT_NAME
   portMappings:
