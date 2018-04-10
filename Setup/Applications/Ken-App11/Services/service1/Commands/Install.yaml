@@ -24,10 +24,6 @@ commandUnits:
   destinationDirectoryPath: $WINGS_RUNTIME_PATH
   name: Copy Artifact
   source: ARTIFACTS
-- commandUnitType: COPY_CONFIGS
-  deploymentType: SSH
-  destinationParentPath: $WINGS_RUNTIME_PATH
-  name: Copy Configs
 - command: |2-
 
     # Execute as root and pass environment variables
