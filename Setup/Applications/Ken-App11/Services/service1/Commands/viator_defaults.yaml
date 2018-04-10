@@ -22,4 +22,10 @@ commandUnits:
   commandUnitType: EXEC
   deploymentType: SSH
   name: Exec-0
+- command: |-
+    set -x
+    nc -v -z -w 5 localhost 8080
+  commandUnitType: PORT_CHECK_LISTENING
+  deploymentType: SSH
+  name: Port Listening
 targetToAllEnv: true
