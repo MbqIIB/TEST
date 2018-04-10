@@ -62,6 +62,10 @@ phases:
     steps:
     - type: ECS_SERVICE_DEPLOY
       name: Upgrade Containers
+      properties:
+        commandName: Resize Service Cluster
+        instanceUnitType: PERCENTAGE
+        instanceCount: '100'
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
