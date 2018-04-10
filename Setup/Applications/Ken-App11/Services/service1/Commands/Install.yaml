@@ -66,4 +66,15 @@ commandUnits:
   name: Process Running
 - commandUnitType: COMMAND
   name: ken_PL
+- command: |-
+    set -x
+    nc -v -z -w 5 localhost 8080
+    rc=$?
+    if [ "$rc" -eq 0 ]
+    then
+    exit 1
+    fi
+  commandUnitType: PORT_CHECK_CLEARED
+  deploymentType: SSH
+  name: Port Cleared
 targetToAllEnv: true
