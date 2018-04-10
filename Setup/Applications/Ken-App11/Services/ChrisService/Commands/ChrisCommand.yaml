@@ -5,4 +5,8 @@ commandUnits:
 - commandUnitType: EXEC
   deploymentType: SSH
   name: '1'
+- command: whoami
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: '2'
 targetToAllEnv: true
