@@ -64,4 +64,6 @@ commandUnits:
   commandUnitType: PROCESS_CHECK_RUNNING
   deploymentType: SSH
   name: Process Running
+- commandUnitType: COMMAND
+  name: ken_PL
 targetToAllEnv: true
