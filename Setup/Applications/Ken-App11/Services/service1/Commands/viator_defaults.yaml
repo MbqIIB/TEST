@@ -39,4 +39,15 @@ commandUnits:
   commandUnitType: PORT_CHECK_CLEARED
   deploymentType: SSH
   name: Port Cleared
+- command: |-
+    set -x
+    pgrep -f "\-Dcatalina.home=$WINGS_RUNTIME_PATH/tomcat"
+    rc=$?
+    if [ "$rc" -eq 0 ]
+    then
+    exit 1
+    fi
+  commandUnitType: PROCESS_CHECK_STOPPED
+  deploymentType: SSH
+  name: Process Stopped
 targetToAllEnv: true
