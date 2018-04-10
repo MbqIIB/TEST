@@ -1,4 +1,8 @@
 harnessApiVersion: '1.0'
 type: OTHER
 commandUnitType: COMMAND
+commandUnits:
+- commandUnitType: EXEC
+  deploymentType: SSH
+  name: '1'
 targetToAllEnv: true
