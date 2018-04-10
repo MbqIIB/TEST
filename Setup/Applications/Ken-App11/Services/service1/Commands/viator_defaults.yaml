@@ -22,6 +22,4 @@ commandUnits:
   commandUnitType: EXEC
   deploymentType: SSH
   name: Exec-0
-- commandUnitType: COMMAND
-  name: Install
 targetToAllEnv: true
