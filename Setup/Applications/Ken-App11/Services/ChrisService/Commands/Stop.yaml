@@ -11,4 +11,8 @@ commandUnits:
   commandUnitType: PROCESS_CHECK_STOPPED
   deploymentType: SSH
   name: Service Stopped
+- command: whoami
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec-1
 targetToAllEnv: true
