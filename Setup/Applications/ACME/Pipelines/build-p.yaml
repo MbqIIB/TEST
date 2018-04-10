@@ -1,11 +1,16 @@
 harnessApiVersion: '1.0'
 type: PIPELINE
 pipelineStages:
-  - type: ENV_STATE
-    name: build1 (Workflow Template)
-    parallel: false
-    workflowName: build1
-    workflowVariables:
-      - name: targetBranch
-      - name: sourceBranch
-      - name: pullRequestId
+- type: ENV_STATE
+  name: build1 (Workflow Template)
+  parallel: false
+  uuid: Cq7qHmDGTFSpG32-F9eTkQ
+  workflowName: build1
+  workflowVariables:
+  - name: targetBranch
+  - name: sourceBranch
+  - name: pullRequestId
+- type: APPROVAL
+  name: Approval 1
+  parallel: false
+  uuid: t9rWhdLaTI-Cshn__udiWA
