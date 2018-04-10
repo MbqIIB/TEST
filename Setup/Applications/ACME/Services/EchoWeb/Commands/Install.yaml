@@ -46,8 +46,4 @@ commandUnits:
   destinationDirectoryPath: $WINGS_RUNTIME_PATH/tomcat/webapps
   name: Copy Artifact
   source: ARTIFACTS
-- commandUnitType: COPY_CONFIGS
-  deploymentType: SSH
-  destinationParentPath: $WINGS_RUNTIME_PATH
-  name: Copy Configs
 targetToAllEnv: true
