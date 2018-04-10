@@ -41,9 +41,4 @@ commandUnits:
   destinationDirectoryPath: $WINGS_RUNTIME_PATH
   name: Copy
   source: ARTIFACTS
-- commandUnitType: SCP
-  deploymentType: SSH
-  destinationDirectoryPath: $WINGS_RUNTIME_PATH/tomcat/webapps
-  name: Copy Artifact
-  source: ARTIFACTS
 targetToAllEnv: true
