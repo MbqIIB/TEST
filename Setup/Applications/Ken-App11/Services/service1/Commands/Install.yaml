@@ -56,12 +56,6 @@ commandUnits:
   commandUnitType: PROCESS_CHECK_STOPPED
   deploymentType: SSH
   name: Process Stopped
-- command: |-
-    set -x
-    pgrep -f "\-Dcatalina.home=$WINGS_RUNTIME_PATH/tomcat"
-  commandUnitType: PROCESS_CHECK_RUNNING
-  deploymentType: SSH
-  name: Process Running
 - commandUnitType: COMMAND
   name: ken_PL
 - command: |-
