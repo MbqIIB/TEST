@@ -25,6 +25,9 @@ phases:
     steps:
     - type: PCF_SETUP
       name: PCF Service Setup
+      properties:
+        pcfReleaseName: test
+        instanceCount: 1
     stepsInParallel: false
   - type: PCF_DEPLOY
     name: PCF Service Deploy
