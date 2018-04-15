@@ -79,9 +79,6 @@ phases:
   phaseSteps:
   - type: PCF_SETUP
     name: Setup
-    steps:
-    - type: PCF_SETUP
-      name: Setup
     stepsInParallel: false
   - type: PCF_DEPLOY
     name: Deploy
