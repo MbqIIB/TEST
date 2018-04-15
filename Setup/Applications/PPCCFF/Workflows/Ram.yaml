@@ -28,9 +28,6 @@ phases:
     stepsInParallel: false
   - type: PCF_DEPLOY
     name: Deploy
-    steps:
-    - type: PCF_DEPLOY
-      name: Deploy
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
