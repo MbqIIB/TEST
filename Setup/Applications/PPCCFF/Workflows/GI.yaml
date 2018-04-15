@@ -33,6 +33,9 @@ phases:
     steps:
     - type: PCF_DEPLOY
       name: Deploy
+      properties:
+        instanceUnitType: PERCENTAGE
+        instanceCount: 25
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
