@@ -25,6 +25,8 @@ phases:
     steps:
     - type: PCF_SETUP
       name: Setup
+      properties:
+        maxInstances: 2
     stepsInParallel: false
   - type: PCF_DEPLOY
     name: Deploy
