@@ -36,6 +36,11 @@ phases:
       properties:
         instanceUnitType: PERCENTAGE
         instanceCount: '50'
+    - type: PCF_DEPLOY
+      name: Deploy_2
+      properties:
+        instanceUnitType: PERCENTAGE
+        instanceCount: '100'
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
