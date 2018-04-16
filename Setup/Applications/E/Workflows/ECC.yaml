@@ -64,6 +64,26 @@ phases:
     stepsInParallel: false
   provisionNodes: false
   serviceName: ECSS
+- type: ECS
+  computeProviderName: Aws non-prod
+  daemonSet: false
+  infraMappingName: 'test2 (AWS_ECS::Amazon Web Services: Aws non-prod) us-east-1'
+  name: Phase 3
+  phaseSteps:
+  - type: CONTAINER_DEPLOY
+    name: Deploy Containers
+    steps:
+    - type: ECS_SERVICE_DEPLOY
+      name: Upgrade Containers
+    stepsInParallel: false
+  - type: VERIFY_SERVICE
+    name: Verify Service
+    stepsInParallel: false
+  - type: WRAP_UP
+    name: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: ECSS
 rollbackPhases:
 - type: ECS
   computeProviderName: Aws non-prod
@@ -98,6 +118,33 @@ rollbackPhases:
   infraMappingName: 'test2 (AWS_ECS::Amazon Web Services: Aws non-prod) us-east-1'
   name: Rollback Phase 2
   phaseNameForRollback: Phase 2
+  phaseSteps:
+  - type: CONTAINER_DEPLOY
+    name: Deploy Containers
+    phaseStepNameForRollback: Deploy Containers
+    statusForRollback: SUCCESS
+    steps:
+    - type: ECS_SERVICE_ROLLBACK
+      name: Rollback Containers
+      properties:
+        rollback: true
+    stepsInParallel: false
+  - type: VERIFY_SERVICE
+    name: Verify Service
+    phaseStepNameForRollback: Deploy Containers
+    statusForRollback: SUCCESS
+    stepsInParallel: false
+  - type: WRAP_UP
+    name: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: ECSS
+- type: ECS
+  computeProviderName: Aws non-prod
+  daemonSet: false
+  infraMappingName: 'test2 (AWS_ECS::Amazon Web Services: Aws non-prod) us-east-1'
+  name: Rollback Phase 3
+  phaseNameForRollback: Phase 3
   phaseSteps:
   - type: CONTAINER_DEPLOY
     name: Deploy Containers
