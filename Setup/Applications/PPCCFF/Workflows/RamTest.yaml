@@ -26,7 +26,7 @@ phases:
     - type: PCF_SETUP
       name: Setup
       properties:
-        maxInstances: 4
+        maxInstances: 3
     stepsInParallel: false
   - type: PCF_RESIZE
     name: Resize
