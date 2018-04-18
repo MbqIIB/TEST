@@ -33,7 +33,7 @@ phases:
       name: Resize
       properties:
         instanceUnitType: PERCENTAGE
-        instanceCount: 2
+        instanceCount: 50
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
