@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: PCF
+maniefstYaml: |
+  applications:
+  - name : ${APPLICATION_NAME}
+    memory: 750M
+    instances : ${INSTANCE_COUNT}
+    buildpack: https://github.com/cloudfoundry/ja-buildpack.git
+    path: ${FILE_LOCATION}
+    routes:
+      - route: wings-apps-sf.cfapps.io
+serviceName: RAMpcf
