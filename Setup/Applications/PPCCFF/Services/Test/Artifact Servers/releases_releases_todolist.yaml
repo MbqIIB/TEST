@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: NEXUS
+artifactPaths:
+- todolist
+groupId: releases
+metadataOnly: false
+repositoryName: releases
+serverName: Harness Nexus
