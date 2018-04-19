@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: CONFIG_FILE
-checksum: 966634ebf2fc135707d6753692bf4b1e
-checksumType: MD5
-encrypted: false
-fileName: myDoc.txt
-targetFilePath: myDoc.txt
-targetToAllEnv: true
