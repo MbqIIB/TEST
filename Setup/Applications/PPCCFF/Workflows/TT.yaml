@@ -41,6 +41,11 @@ phases:
       properties:
         instanceUnitType: PERCENTAGE
         instanceCount: 35
+    - type: PCF_RESIZE
+      name: Resize_3
+      properties:
+        instanceUnitType: PERCENTAGE
+        instanceCount: 100
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
