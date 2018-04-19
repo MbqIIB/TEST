@@ -40,7 +40,7 @@ phases:
       name: Resize_2
       properties:
         instanceUnitType: PERCENTAGE
-        instanceCount: 35
+        instanceCount: 70
     - type: PCF_RESIZE
       name: Resize_3
       properties:
