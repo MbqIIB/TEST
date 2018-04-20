@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: SERVICE
-applicationStack: tomcat stack
-artifactType: WAR
-description: qwrefg2g234g
