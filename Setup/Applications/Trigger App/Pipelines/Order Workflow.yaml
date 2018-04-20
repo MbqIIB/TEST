@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: PIPELINE
-description: Wrapped workflow in Pipeline
-pipelineStages:
-  - type: ENV_STATE
-    name: Order Workflow
-    parallel: false
-    workflowName: Order Workflow
