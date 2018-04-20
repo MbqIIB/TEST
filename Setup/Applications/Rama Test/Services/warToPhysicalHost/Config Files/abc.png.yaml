@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: CONFIG_FILE
-checksum: cc92fccb571359fb4b007dff822db5f7
-checksumType: MD5
-encrypted: false
-fileName: abc.png
-targetFilePath: abc.png
-targetToAllEnv: true

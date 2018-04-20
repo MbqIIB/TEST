@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: CONFIG_FILE
-checksum: bccdba9199d5385b5d86260051e3f387
-checksumType: MD5
-encrypted: true
-fileName: safeharness:1b6503d3-38b5-4288-b415-1cc9bb1a047a
-targetFilePath: todos.txt
-targetToAllEnv: true

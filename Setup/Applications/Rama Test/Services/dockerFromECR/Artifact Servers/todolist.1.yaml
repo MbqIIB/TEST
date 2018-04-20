@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: ECR
-imageName: todolist
-metadataOnly: false
-region: us-east-1
-serverName: harness-aws-prod

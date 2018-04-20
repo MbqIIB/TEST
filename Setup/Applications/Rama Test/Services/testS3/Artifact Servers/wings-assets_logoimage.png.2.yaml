@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: AMAZON_S3
-artifactPaths:
-  - logoimage.png
-bucketName: wings-assets
-metadataOnly: true
-serverName: harness-aws-prod
