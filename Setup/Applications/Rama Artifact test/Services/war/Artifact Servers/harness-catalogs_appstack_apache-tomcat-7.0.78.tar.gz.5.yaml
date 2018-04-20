@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: AMAZON_S3
-artifactPaths:
-  - appstack/apache-tomcat-7.0.78.tar.gz
-bucketName: harness-catalogs
-metadataOnly: true
-serverName: aws
