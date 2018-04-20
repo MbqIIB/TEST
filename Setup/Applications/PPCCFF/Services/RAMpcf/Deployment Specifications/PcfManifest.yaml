@@ -3,10 +3,11 @@ type: PCF
 maniefstYaml: |
   applications:
   - name : ${APPLICATION_NAME}
-    memory: 750M
+    memory: 850M
     instances : ${INSTANCE_COUNT}
-    buildpack: https://github.com/cloudfoundry/ja-buildpack.git
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
     path: ${FILE_LOCATION}
     routes:
+      - route: ${ROUTE_MAP}
       - route: wings-apps-sf.cfapps.io
 serviceName: RAMpcf
