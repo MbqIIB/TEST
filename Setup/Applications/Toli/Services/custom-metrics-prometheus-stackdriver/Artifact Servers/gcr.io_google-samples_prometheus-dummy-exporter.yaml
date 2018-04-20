@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: GCR
-dockerImageName: google-samples/prometheus-dummy-exporter
-metadataOnly: false
-registryHostName: gcr.io
-serverName: exploration

@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: PIPELINE
-pipelineStages:
-  - type: ENV_STATE
-    name: only-barrier-2
-    parallel: false
-    uuid: IZrhPkqTRcaRrPqKxApRhw
-    workflowName: barrier-2
