@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: PIPELINE
-description: Approval
-pipelineStages:
-  - type: APPROVAL
-    name: Approval 0
-    parallel: false
-    uuid: RWN_G7dRTnSYum9Y6w4jMw
