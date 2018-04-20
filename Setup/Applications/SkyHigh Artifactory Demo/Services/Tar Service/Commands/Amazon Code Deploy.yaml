@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: INSTALL
-commandUnitType: COMMAND
-commandUnits:
-  - commandUnitType: CODE_DEPLOY
-    deploymentType: AWS_CODEDEPLOY
-    name: Amazon Code Deploy
-targetToAllEnv: true
