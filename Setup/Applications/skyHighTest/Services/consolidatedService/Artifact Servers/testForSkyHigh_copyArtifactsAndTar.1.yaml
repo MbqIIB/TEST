@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: JENKINS
-artifactPaths:
-  - dist/tarBundle.tar
-jobName: testForSkyHigh/copyArtifactsAndTar
-metadataOnly: false
-serverName: harness_jenkins
