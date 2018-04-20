@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: ENVIRONMENT
-environmentType: NON_PROD
-variableOverrides:
-  - name: var2
-    serviceName: Todolist
-    value: ${env.name}
-    valueType: TEXT
