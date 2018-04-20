@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: CONFIG_FILE_OVERRIDE
-checksumType: MD5
-encrypted: true
-fileName: 6f21bb13-e0e2-4da5-8011-ede496564ffb
-serviceName: Docker
-targetFilePath: NEWDoc.txt

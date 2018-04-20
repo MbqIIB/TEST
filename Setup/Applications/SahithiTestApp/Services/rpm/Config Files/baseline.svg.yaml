@@ -1,9 +1,0 @@
-harnessApiVersion: '1.0'
-type: CONFIG_FILE
-checksum: 5ba9c6b14ed72e23e8249032c2ca02eb
-checksumType: MD5
-description: matt test delete1
-encrypted: false
-fileName: baseline.svg
-targetFilePath: baseline.svg
-targetToAllEnv: true

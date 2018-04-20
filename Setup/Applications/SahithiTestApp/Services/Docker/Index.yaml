@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: SERVICE
-artifactType: DOCKER
-configMapYaml: Test Configmap
-helmValueYaml: Test Helm Value

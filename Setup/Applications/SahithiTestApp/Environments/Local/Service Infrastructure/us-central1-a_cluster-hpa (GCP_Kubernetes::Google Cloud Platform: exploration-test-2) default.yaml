@@ -1,9 +1,0 @@
-harnessApiVersion: '1.0'
-type: GCP_KUBERNETES
-cluster: us-central1-a/cluster-hpa
-computeProviderName: exploration-test-2
-computeProviderType: GCP
-deploymentType: KUBERNETES
-infraMappingType: GCP_KUBERNETES
-namespace: default
-serviceName: Docker

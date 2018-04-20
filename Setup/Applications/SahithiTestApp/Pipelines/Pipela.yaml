@@ -1,8 +1,0 @@
-harnessApiVersion: '1.0'
-type: PIPELINE
-pipelineStages:
-  - type: ENV_STATE
-    name: test step
-    parallel: false
-    uuid: fTN8ZhtQQYeP8YEOvgbLFw
-    workflowName: BasicAMIWorkflow
