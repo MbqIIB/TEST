@@ -1,9 +1,0 @@
-harnessApiVersion: '1.0'
-type: KUBERNETES
-containerDefinition:
-    commands:
-      - ''
-    cpu: 1
-    logConfiguration: {}
-    memory: 130
-    name: DEFAULT_NAME
