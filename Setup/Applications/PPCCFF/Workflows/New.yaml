@@ -22,12 +22,6 @@ phases:
   phaseSteps:
   - type: PCF_SETUP
     name: PCF Setup
-    steps:
-    - type: PCF_SETUP
-      name: PCF Setup
-      properties:
-        maxInstances: 3
-        resizeStrategy: DOWNSIZE_OLD_FIRST
     stepsInParallel: false
   - type: PCF_RESIZE
     name: Resize
