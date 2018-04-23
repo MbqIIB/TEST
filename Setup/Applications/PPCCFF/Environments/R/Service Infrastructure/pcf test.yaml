@@ -6,7 +6,7 @@ deploymentType: PCF
 infraMappingType: PCF
 organization: Ad-PCF
 routeMaps:
-- wings-apps-sf.cfapps.io1
+- wings-apps-sf.cfapps.io
 - todolist-app-courteous-wildebeest.cfapps.io
 - harness-pcf-app-deploy-version1.cfapps.io
 serviceName: RAMpcf
