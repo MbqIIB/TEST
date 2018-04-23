@@ -85,8 +85,10 @@ phases:
     - type: PCF_RESIZE
       name: Resize
       properties:
+        downsizeInstanceUnitType: PERCENTAGE
         instanceUnitType: PERCENTAGE
         instanceCount: 100
+        downsizeInstanceCount: 100
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
