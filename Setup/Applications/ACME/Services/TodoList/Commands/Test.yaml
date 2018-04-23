@@ -1,9 +1,0 @@
-harnessApiVersion: '1.0'
-type: OTHER
-commandUnitType: COMMAND
-commandUnits:
-  - commandUnitType: COMMAND
-    name: Start
-  - commandUnitType: COMMAND
-    name: Stop
-targetToAllEnv: true
