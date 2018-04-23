@@ -5,9 +5,8 @@ maniefstYaml: |
   - name : ${APPLICATION_NAME}
     memory: 850M
     instances : ${INSTANCE_COUNT}
-    buildpack: https://github.com/cloudfoundry/java-buildpack.git
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git1
     path: ${FILE_LOCATION}
     routes:
       - route: ${ROUTE_MAP}
-      - route: wings-apps-sf.cfapps.io
 serviceName: RAMpcf
