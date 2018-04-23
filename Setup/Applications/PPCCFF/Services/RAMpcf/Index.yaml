@@ -3,6 +3,9 @@ type: SERVICE
 applicationStack: HFS
 artifactType: PCF
 configVariables:
+- name: Key2
+  value: val2
+  valueType: TEXT
 - name: key1
   value: key2
   valueType: TEXT
