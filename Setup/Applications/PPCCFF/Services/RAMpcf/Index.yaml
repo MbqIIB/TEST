@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: SERVICE
+applicationStack: HFS
+artifactType: PCF
+configVariables:
+- name: key1
+  value: key2
+  valueType: TEXT
