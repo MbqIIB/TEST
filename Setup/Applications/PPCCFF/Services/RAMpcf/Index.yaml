@@ -7,5 +7,5 @@ configVariables:
   value: val2
   valueType: TEXT
 - name: key1
-  value: key2
+  value: Val1
   valueType: TEXT
