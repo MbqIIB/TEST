@@ -5,7 +5,7 @@ maniefstYaml: |
   - name : ${APPLICATION_NAME}
     memory: 850M
     instances : ${INSTANCE_COUNT}
-    buildpack: https://github.com/cloudfoundry/java-buildpack.git1
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git
     path: ${FILE_LOCATION}
     routes:
       - route: ${ROUTE_MAP}
