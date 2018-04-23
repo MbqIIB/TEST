@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: PCF
+computeProviderName: pcf
+computeProviderType: PCF
+deploymentType: PCF
+infraMappingType: PCF
+organization: Ad-PCF
+routeMaps:
+- wings-apps-sf.cfapps.io1
+- todolist-app-courteous-wildebeest.cfapps.io
+- harness-pcf-app-deploy-version1.cfapps.io
+serviceName: RAMpcf
+space: development
+tempRouteMap:
+- ''
