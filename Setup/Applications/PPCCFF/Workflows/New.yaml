@@ -38,7 +38,7 @@ phases:
         downsizeInstanceUnitType: PERCENTAGE
         instanceUnitType: PERCENTAGE
         instanceCount: 35
-        downsizeInstanceCount: 0
+        downsizeInstanceCount: 100
     stepsInParallel: false
   - type: VERIFY_SERVICE
     name: Verify Service
